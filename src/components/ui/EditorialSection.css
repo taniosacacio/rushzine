@@ -1,0 +1,1785 @@
+/* ==========================================================================
+   Swiss Design Poster Style Editorial Section & Fonts
+   ========================================================================== */
+
+@font-face {
+  font-family: 'SnakesAndArrowsAltBold';
+  src: url('../../../public/rushfonts/Snakes&ArrowsAltBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MyFavoriteHeadache';
+  src: url('../../../public/rushfonts/MyFavoriteHeadache.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'VaporTrailsRemixed';
+  src: url('../../../public/rushfonts/VaporTrailsRemixed.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Beyond The Lighted Stage';
+  src: url('../../../public/rushfonts/BeyondTheLightedStage.ttf') format('truetype');
+}
+
+.editorial-section-container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 4rem auto;
+  padding: 0 24px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* The Poster Frame */
+.editorial-poster-frame {
+  position: relative;
+  width: 100%;
+  background-color: #ff5a36; /* Vibrant Coral Orange */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 0 100px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 50px 60px 30px 60px; /* Reduced vertical padding */
+  box-sizing: border-box;
+}
+
+/* Paper texture grain overlay */
+.poster-paper-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  background-image: radial-gradient(circle, #000 1px, transparent 1px),
+                    radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 3px 3px, 2px 2px;
+  background-position: 0 0, 1px 1px;
+  z-index: 5;
+}
+
+/* Creases and folds simulation */
+.poster-creases {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 6;
+  background: 
+    linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.4) 100%),
+    linear-gradient(45deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0.5) 100%);
+  background-size: 100% 100%;
+}
+
+/* Brand Name in Upper Right */
+.poster-brand-header {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.poster-logo-img {
+  height: 32px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.poster-brand-header span {
+  font-family: 'Neue Machina', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: 0.2em;
+  color: #fffdf6; /* Cream White */
+  text-transform: uppercase;
+}
+
+/* Swiss Geometric Background (Trapezoids/Parallelograms in lower two-thirds) */
+.swiss-geometric-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 75%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.trapezoid-shape-1 {
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 70%;
+  height: 110%;
+  background-color: #fffdf6; /* Cream White */
+  transform: skewX(-20deg);
+  border-radius: 4px;
+}
+
+.trapezoid-shape-2 {
+  position: absolute;
+  bottom: -20%;
+  right: -5%;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 253, 246, 0.85); /* Slightly translucent Cream White */
+  transform: skewX(15deg);
+  border-radius: 4px;
+}
+
+/* Scattered transparent background stickers collage */
+.poster-stickers-collage-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.bg-collage-full-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.12; /* Transparent watermark styling */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.bg-dalmata-large-bg {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+  width: 25%;
+  max-width: 320px;
+  height: auto;
+  opacity: 0.12; /* Same transparency */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transform: rotate(-12deg);
+}
+
+/* Content Layout (Relative to keep it above geometry) */
+.poster-content-layout {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 48px; /* Reduced gap */
+  height: 100%;
+  margin-top: 24px; /* Reduced margin */
+  align-items: start; /* Align to top to prevent stretching */
+}
+
+/* Title Column */
+.poster-title-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Deconstructed Title Styling (Snakes & Arrows Alt Bold) */
+.swiss-main-title {
+  font-family: 'SnakesAndArrowsAltBold', sans-serif;
+  font-size: clamp(4.5rem, 9.5vw, 10rem);
+  font-weight: 950;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: #fffdf6;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+.letter-span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.letter-e {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+.letter-d {
+  transform: skewX(-8deg) translateY(4px);
+  margin-left: -5px;
+}
+
+.letter-i {
+  transform: scale(1.2) rotate(4deg);
+  margin-left: 5px;
+}
+
+.letter-t {
+  transform: rotate(5deg) scale(1.1);
+  margin-top: 8px;
+}
+
+.letter-o {
+  transform: skewY(5deg) scale(0.9);
+  margin-left: -8px;
+}
+
+.letter-r {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+.letter-i2 {
+  transform: translateY(-5px) scaleY(1.25);
+  margin-left: -4px;
+}
+
+.letter-a {
+  transform: rotate(3deg) scale(1.15);
+  margin-left: 2px;
+}
+
+.letter-l {
+  transform: skewX(12deg) translateY(6px);
+  margin-left: -6px;
+}
+
+.swiss-edition-badge {
+  background-color: #ff5a36;
+  color: #fffdf6;
+  padding: 8px 16px;
+  font-family: 'Neue Machina', sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  margin-top: 40px;
+}
+
+/* Text Column */
+.poster-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #1a1a1a; /* Stark dark gray for contrast on cream shape */
+  padding-right: 40px;
+}
+
+.editorial-body-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* My Favorite Headache Font (Tagline) */
+.editorial-tagline {
+  font-family: 'MyFavoriteHeadache', sans-serif;
+  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-weight: normal;
+  line-height: 1.1;
+  color: #fffdf6; /* High contrast white/cream on orange background */
+  letter-spacing: normal;
+  margin: 0;
+  text-transform: none;
+  display: inline-block;
+  background: linear-gradient(120deg, #ffe600 0%, #ffe600 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.18em;
+  background-position: 0 88%;
+  transition: background-size 0.35s cubic-bezier(0.19, 1, 0.22, 1), 
+              color 0.25s ease, 
+              transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              padding 0.3s ease;
+  cursor: pointer;
+}
+
+.editorial-tagline:hover {
+  background-size: 100% 100%;
+  color: #111 !important; /* Dark text on full yellow highlight */
+  transform: scale(1.03) rotate(-0.5deg);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+/* Custom highlight inside the tagline to preserve readability of "Zine" on orange */
+.editorial-tagline .highlight-text-zine {
+  color: #1a1a1a !important; 
+  background-color: #fffdf6;
+  padding: 2px 8px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+  display: inline-block;
+  transform: rotate(-1deg);
+}
+
+.editorial-divider {
+  width: 80px;
+  height: 8px;
+  background-color: #ff5a36;
+  margin: 8px 0;
+}
+
+.editorial-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #222;
+}
+
+/* Beyond The Lighted Stage Font (Highlight text) */
+.editorial-highlight-para {
+  font-family: 'Beyond The Lighted Stage', sans-serif;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.35;
+  color: #111;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+}
+
+/* Vapor Trails Remixed Font (Paragraph body text) - Now MyFavoriteHeadache */
+.editorial-body-para {
+  font-family: 'MyFavoriteHeadache', sans-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  line-height: 1.2;
+  font-weight: normal;
+  color: #222;
+}
+
+.editorial-conditions-intro {
+  font-family: 'VaporTrailsRemixed', sans-serif;
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  color: #111; /* High contrast dark gray/black */
+  font-weight: 700;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  background-color: rgba(255, 253, 246, 0.85); /* Backplate to block out any background stickers */
+  padding: 8px 14px;
+  border-left: 4px solid #ff5a36; /* Orange visual accent */
+  border-radius: 0 6px 6px 0;
+  display: block;
+}
+
+.editorial-big-money-title {
+  font-family: 'SnakesAndArrowsAltBold', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  color: #ff5a36;
+  letter-spacing: -0.04em;
+  margin: 1.5rem 0 0.5rem 0;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+/* Dynamic Highlights */
+.highlight-text-rush {
+  color: #ff0000 !important;
+  font-weight: bold;
+}
+
+.highlight-text-zine {
+  color: #8e3a00 !important; /* Darker burnt orange for high contrast on cream background */
+  font-weight: bold;
+}
+
+.highlight-text-portal {
+  color: #0055ff !important;
+  font-weight: bold;
+}
+
+/* Goals Grid (Vertical List) */
+.editorial-goals-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.editorial-goal-card {
+  background-color: #ff5a36;
+  color: #fffdf6;
+  padding: 16px 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(255, 90, 54, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Muted / Low color card for lower value */
+.goal-card-0 {
+  background: rgba(255, 90, 54, 0.2) !important;
+  color: #d84315 !important;
+  border: 2px dashed rgba(255, 90, 54, 0.4) !important;
+  box-shadow: none !important;
+}
+.goal-card-0 .goal-value {
+  color: #d84315 !important;
+}
+
+/* Mixed Orange & Green card for middle value */
+.goal-card-1 {
+  background: linear-gradient(135deg, #ff5a36 0%, #2ecc71 100%) !important;
+  color: #fffdf6 !important;
+  box-shadow: 0 10px 25px rgba(255, 90, 54, 0.25) !important;
+}
+
+/* Full Vibrant Green card for highest value */
+.goal-card-2 {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%) !important;
+  color: #fffdf6 !important;
+  box-shadow: 0 12px 30px rgba(46, 204, 113, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.goal-value {
+  font-family: 'Neue Machina', sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.editorial-goals-section .goal-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Animated Infographics Section
+   ========================================================================== */
+
+.infographic-section-wrapper {
+  position: relative;
+  z-index: 4;
+  margin-top: 32px; /* Small, elegant gap immediately following the paragraphs */
+  width: 100%;
+  border-top: 2px dashed rgba(255, 90, 54, 0.2);
+  padding-top: 24px;
+}
+
+.infographic-row-title {
+  text-align: center;
+  margin-bottom: 24px;
+  perspective: 800px;
+}
+
+.infographic-row-title span {
+  display: inline-block;
+  font-family: 'SnakesAndArrowsAltBold', 'Neue Machina', sans-serif;
+  font-weight: 950;
+  font-size: clamp(2rem, 5vw, 4rem); /* Ajustado para não quebrar linha */
+  letter-spacing: 0.02em;
+  color: #fffdf6; /* White text */
+  background-color: #ff5a36; /* Coral background block */
+  padding: 14px 40px; /* Padding ajustado */
+  border: 6px solid #fffdf6; /* Thicker borders */
+  border-radius: 6px;
+  transform: rotate(-2deg) skewX(-5deg);
+  box-shadow: 12px 12px 0px #111; /* Increased offset shadow */
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap; /* Impede quebra de linha */
+}
+
+.infographic-row-title span:hover {
+  transform: scale(1.06) rotate(1deg) skewX(3deg);
+  background-color: #111; /* Contrast block change */
+  color: #ff5a36; /* Contrast text change */
+  border-color: #ff5a36;
+  box-shadow: 18px 18px 0px #ff5a36; /* Increased hover shadow */
+}
+
+/* Z-Track Interactive Menu Layout */
+.z-track-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 650px;
+  margin: 0px auto; /* Reduced margin */
+  box-sizing: border-box;
+}
+
+.z-track-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.z-track-line {
+  /* Subtle animation of the dashes moving down the track! */
+  stroke-dasharray: 24 18;
+  animation: moveTrackDashes 8s linear infinite;
+}
+
+@keyframes moveTrackDashes {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -84;
+  }
+}
+
+.z-stickers-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Base sticker menu item size and hover logic */
+.sticker-menu-item {
+  position: absolute;
+  width: 22%;
+  max-width: 250px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  perspective: 1000px; /* Added 3D perspective context */
+}
+
+.sticker-menu-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Thick white sticker contour drop-shadow */
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+  transform-style: preserve-3d;
+}
+
+/* Digital Zine Interactive Tooltips */
+.sticker-tooltip-card {
+  position: absolute;
+  bottom: 115%; /* Placed above the sticker */
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  background-color: #fffdf6; /* Match Swiss layout paper color */
+  border: 3px solid #ff5a36; /* Bright coral boundary */
+  padding: 8px 16px;
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(255, 253, 246, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  z-index: 999;
+  pointer-events: none;
+  animation: tooltipPopIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes tooltipPopIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(15px) scale(0.7) rotate(-6deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1) rotate(-2deg);
+  }
+}
+
+.tooltip-page {
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #ff5a36;
+  letter-spacing: 0.1em;
+}
+
+.tooltip-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.tooltip-action {
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 900;
+  background-color: #ff5a36;
+  color: #fffdf6;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Real walking loop animation along the Z track path */
+@keyframes walkTheZ {
+  0% {
+    left: 4%;
+    top: 2%;
+  }
+  30% {
+    left: 74%;
+    top: 3%;
+  }
+  70% {
+    left: 4%;
+    top: 72%;
+  }
+  100% {
+    left: 74%;
+    top: 70%;
+  }
+}
+
+.sticker-pos-1 { animation: walkTheZ 20s linear infinite; animation-delay: 0s; }
+.sticker-pos-2 { animation: walkTheZ 20s linear infinite; animation-delay: -4s; }
+.sticker-pos-3 { animation: walkTheZ 20s linear infinite; animation-delay: -8s; }
+.sticker-pos-4 { animation: walkTheZ 20s linear infinite; animation-delay: -12s; }
+.sticker-pos-5 { animation: walkTheZ 20s linear infinite; animation-delay: -16s; }
+
+/* Dynamic tilts during travel */
+.sticker-pos-1 .sticker-menu-img { transform: rotate(-5deg); }
+.sticker-pos-2 .sticker-menu-img { transform: rotate(4deg); }
+.sticker-pos-3 .sticker-menu-img { transform: rotate(-2deg); }
+.sticker-pos-4 .sticker-menu-img { transform: rotate(3deg); }
+.sticker-pos-5 .sticker-menu-img { transform: rotate(-4deg); }
+
+.sticker-menu-item:hover {
+  z-index: 200 !important;
+  animation-play-state: paused !important; /* Pause walking loop on hover */
+}
+
+/* Interactive 3D Tilts and scales on hover */
+.sticker-pos-1:hover .sticker-menu-img { transform: scale(1.25) rotateX(15deg) rotateY(-10deg) rotateZ(3deg); }
+.sticker-pos-2:hover .sticker-menu-img { transform: scale(1.25) rotateX(15deg) rotateY(10deg) rotateZ(-3deg); }
+.sticker-pos-3:hover .sticker-menu-img { transform: scale(1.25) rotateX(10deg) rotateY(-15deg) rotateZ(4deg); }
+.sticker-pos-4:hover .sticker-menu-img { transform: scale(1.25) rotateX(10deg) rotateY(15deg) rotateZ(-4deg); }
+.sticker-pos-5:hover .sticker-menu-img { transform: scale(1.25) rotateX(12deg) rotateY(-12deg) rotateZ(3deg); }
+
+
+/* Responsive Styles for Mobile Viewports */
+@media (max-width: 991px) {
+  .z-track-wrapper {
+    height: auto;
+    margin: 20px auto;
+  }
+  
+  .z-track-svg {
+    display: none; /* Hide vector lines on smaller screens */
+  }
+  
+  .z-stickers-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    height: auto;
+    width: 100%;
+  }
+  
+  .sticker-menu-item {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 42%;
+    max-width: 220px;
+    animation: none !important; /* Stop floating on mobile for ease of touch */
+  }
+  
+  .sticker-menu-item:nth-child(even) {
+    transform: rotate(3deg) !important;
+  }
+  
+  .sticker-menu-item:nth-child(odd) {
+    transform: rotate(-3deg) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .sticker-menu-item {
+    width: 80%;
+    max-width: 260px;
+  }
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .infographic-svgs-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .editorial-poster-frame {
+    padding: 24px 20px;
+  }
+  
+  .poster-content-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .poster-title-col,
+  .poster-text-col {
+    display: contents;
+  }
+  
+  .swiss-main-title {
+    order: 1;
+    font-size: clamp(2.8rem, 9.5vw, 4.4rem);
+    line-height: 0.95;
+    text-align: center !important;
+    margin: 10px auto 16px auto !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  .swiss-main-title .letter-span {
+    margin-left: 2px !important;
+  }
+  
+  .editorial-body-wrapper {
+    order: 2;
+    gap: 12px;
+  }
+  
+  .editorial-poster-image-container {
+    order: 3;
+    margin: 12px auto;
+    max-width: 250px;
+    padding: 6px;
+    box-shadow: 6px 6px 0px #fffdf6, 10px 10px 0px #ff5a36, 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .swiss-edition-badge {
+    order: 4;
+    margin-top: 12px;
+  }
+  
+  .swiss-geometric-bg {
+    height: 100%;
+  }
+  
+  .trapezoid-shape-1 {
+    display: none !important;
+  }
+  
+  .trapezoid-shape-2 {
+    display: none;
+  }
+  
+  .poster-brand-header {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .poster-text-col {
+    padding-right: 0;
+  }
+  
+  .editorial-goals-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .infographic-svgs-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  /* Compact sizes for mobile readability */
+  .editorial-tagline {
+    font-size: clamp(1.2rem, 4vw, 1.6rem) !important;
+  }
+  
+  .editorial-highlight-para {
+    font-size: clamp(1.0rem, 3.2vw, 1.15rem) !important;
+    line-height: 1.35;
+  }
+  
+  .editorial-body-para {
+    font-size: clamp(1.05rem, 3.4vw, 1.25rem) !important;
+    line-height: 1.25;
+  }
+
+  /* Ocultar o menu interativo de adesivos e a fita adesiva no celular */
+  .infographic-section-wrapper,
+  .poster-stickers-tape {
+    display: none !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .infographic-svgs-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .swiss-main-title {
+    font-size: clamp(2.6rem, 9.5vw, 3.5rem);
+    line-height: 0.95;
+    margin-top: 10px;
+  }
+  
+  .poster-brand-header {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 12px;
+    align-self: flex-start;
+  }
+  
+  .poster-brand-header span {
+    font-size: 0.9rem;
+  }
+  
+  .editorial-poster-frame {
+    padding: 20px 14px;
+  }
+  
+  .swiss-edition-badge {
+    margin-top: 12px;
+  }
+  
+  .editorial-tagline {
+    font-size: 1.35rem !important;
+  }
+  
+  .editorial-highlight-para {
+    font-size: 0.98rem !important;
+  }
+  
+  .editorial-body-para {
+    font-size: 1.05rem !important;
+  }
+  
+  .editorial-poster-image-container {
+    max-width: 220px;
+  }
+}
+
+/* Poster Editorial Image Container & styled borders */
+.editorial-poster-image-container {
+  position: relative;
+  margin: 30px auto 20px 10px;
+  padding: 10px;
+  background-color: #fffdf6; /* White inside border container */
+  border: 4px solid #ff5a36; /* Coral orange border */
+  border-radius: 12px;
+  box-shadow: 10px 10px 0px #fffdf6, 16px 16px 0px #ff5a36, 0 15px 35px rgba(0, 0, 0, 0.4);
+  transform: rotate(-3deg);
+  max-width: 280px;
+  width: 90%;
+  z-index: 5;
+  box-sizing: border-box;
+}
+
+.editorial-poster-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 2px solid rgba(0,0,0,0.1);
+}
+
+.editorial-image-caption {
+  font-family: 'Beyond The Lighted Stage', sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  line-height: 1.3;
+  color: #111;
+  margin: 12px 0 0 0;
+  text-align: center;
+  font-weight: normal;
+  border-top: 1.5px dashed rgba(255, 90, 54, 0.35);
+  padding-top: 10px;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 991px) {
+  .editorial-poster-image-container {
+    margin: 20px auto;
+    transform: rotate(0deg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Translucent Background Watermark */
+.poster-logo-watermark {
+  position: absolute;
+  top: 35%; /* Moved up from 50% to align with the photo */
+  left: 24%; /* Placed next to / slightly behind the photo of Tânios */
+  transform: translate(-50%, -50%) rotate(-12deg);
+  width: 65%;
+  max-width: 900px;
+  opacity: 0.32; /* Screen-printed look */
+  pointer-events: none;
+  z-index: 2; /* Sits behind the text, above geometric base */
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.25));
+}
+
+.poster-logo-watermark img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrolling Stickers Tape */
+.poster-stickers-tape {
+  position: relative;
+  width: 100%;
+  height: 60px; /* Reduced from 80px */
+  overflow: hidden;
+  margin-top: 8px; /* Reduced margin */
+  border-top: 1px solid rgba(255, 90, 54, 0.15);
+  border-bottom: 1px solid rgba(255, 90, 54, 0.15);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.stickers-tape-track {
+  display: flex;
+  width: 200%; /* Enough to fit two repeats side-by-side */
+  height: 100%;
+  animation: scrollStickers 45s linear infinite;
+}
+
+.stickers-img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  opacity: 0.08; /* Very transparent to not clash with the content */
+  mix-blend-mode: multiply; /* Multiplies white background away */
+  padding: 8px 0;
+  box-sizing: border-box;
+}
+@keyframes scrollStickers {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Responsive Text Variants */
+.mobile-text {
+  display: none;
+}
+.desktop-text {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .mobile-text {
+    display: inline;
+  }
+  .desktop-text {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Editorial Toggle Switcher
+   ========================================================================== */
+.editorial-toggle-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 2.5rem;
+  z-index: 10;
+  position: relative;
+}
+
+.editorial-toggle-btn {
+  background-color: #121212;
+  border: 1px solid rgba(255, 90, 54, 0.3);
+  color: #a0a0a0;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: 'Neue Machina', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.editorial-toggle-btn:hover {
+  border-color: #ff5a36;
+  color: #fffdf6;
+  transform: translateY(-2px);
+}
+
+.editorial-toggle-btn.active {
+  background-color: #ff5a36;
+  border-color: #ff5a36;
+  color: #fffdf6;
+  box-shadow: 0 6px 20px rgba(255, 90, 54, 0.45);
+}
+
+/* ==========================================================================
+   Editorial Index (Table of Contents) Layout
+   ========================================================================== */
+.editorial-index-frame {
+  position: relative;
+  width: 100%;
+  background-color: #0d0d0d; /* Deep premium black background */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 253, 246, 0.1);
+  padding: 60px 80px;
+  box-sizing: border-box;
+}
+
+.sumario-main-title {
+  font-family: 'SnakesAndArrowsAltBold', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 950;
+  color: #fffdf6;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  text-align: left;
+  z-index: 10;
+  position: relative;
+  letter-spacing: -0.04em;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+.editorial-index-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.editorial-index-left-col {
+  width: 24%; /* Balanced column width */
+  display: flex;
+  flex-direction: column;
+}
+
+.editorial-index-right-col {
+  width: 24%; /* Balanced column width */
+  display: flex;
+  flex-direction: column;
+  margin-top: 110px; /* Vertically aligns the list start with the left title */
+}
+
+.editorial-index-tag {
+  font-family: 'Neue Machina', sans-serif;
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #ff5a36;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.editorial-index-title {
+  font-family: 'SnakesAndArrowsAltBold', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem); /* Reduced to prevent text clipping */
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #ff5a36; /* Vibrant Orange */
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+}
+
+.editorial-index-title-sub {
+  color: #ffa07a; /* Lighter peach orange */
+  transition: color 0.3s ease;
+}
+
+.editorial-index-rows-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.editorial-index-row {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.editorial-index-row:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.editorial-index-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.editorial-index-row-title-text {
+  font-family: 'MyFavoriteHeadache', sans-serif;
+  font-size: 1.45rem;
+  font-weight: normal;
+  color: #a0a0a0; /* Clean medium-grey by default */
+  margin: 0;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.editorial-index-row:hover .editorial-index-row-title-text {
+  color: #ff5a36; /* Vibrant orange on hover */
+  text-shadow: 0 0 10px rgba(255, 90, 54, 0.45);
+}
+
+/* Green Color Exception for Money Folds (7 and 8) */
+.editorial-index-row-title-text.text-money-green {
+  color: #10b981; /* Exceptionally green! */
+  opacity: 0.85;
+}
+
+.editorial-index-row:hover .editorial-index-row-title-text.text-money-green {
+  color: #10b981 !important; /* Glows green on hover */
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.editorial-index-row-page {
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 0.95rem; /* Increased size */
+  font-weight: 900;
+  color: #555;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.editorial-index-row:hover .editorial-index-row-page {
+  color: #ffa07a; /* Light orange page index on hover */
+}
+
+.editorial-index-row-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem; /* Increased size for description text */
+  line-height: 1.6;
+  color: #888; /* Slightly brighter grey */
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.editorial-index-row:hover .editorial-index-row-desc {
+  color: #b0b0b0;
+}
+
+/* Right Column - Image container */
+.editorial-index-image-col {
+  width: 52%; /* Cinematic large center slide */
+  position: relative;
+  height: 72vh; /* Large height to occupy main part of area */
+}
+
+.editorial-index-sticky-image-container {
+  position: sticky;
+  top: 120px;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.editorial-index-preview-img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  transition: filter 0.3s ease, object-fit 0.3s ease;
+}
+
+.editorial-index-preview-img.fit-cover {
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.15) brightness(0.9);
+}
+
+.editorial-index-preview-img.fit-contain {
+  object-fit: contain;
+  filter: grayscale(100%) contrast(1.05) brightness(0.95);
+  padding: 24px;
+}
+
+.editorial-index-preview-img.is-blur {
+  filter: blur(8px) grayscale(100%) contrast(1.1) brightness(0.75); /* Reduced blur to show a bit of the image */
+}
+
+/* Locked Content Overlay */
+.editorial-index-lock-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 6;
+  gap: 16px;
+}
+
+.editorial-index-lock-overlay .lock-icon {
+  width: 64px;
+  height: 64px;
+  color: #ff5a36;
+  filter: drop-shadow(0 4px 12px rgba(255, 90, 54, 0.5));
+}
+
+.editorial-index-lock-overlay .lock-text {
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  color: #ff5a36;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Orange Duotone Filter Overlay */
+.editorial-index-image-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #ff5a36;
+  mix-blend-mode: color;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 5;
+  transition: background-color 0.3s ease;
+}
+
+.editorial-index-image-overlay.is-green {
+  background-color: #10b981 !important;
+}
+
+.editorial-index-uplink {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.editorial-index-uplink-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ff5a36;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.editorial-index-uplink span {
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fffdf6;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 90, 54, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(255, 90, 54, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 90, 54, 0);
+  }
+}
+
+/* Responsive Index Styles */
+@media (max-width: 991px) {
+  .editorial-index-frame {
+    padding: 40px;
+  }
+  
+  .editorial-index-grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .editorial-index-left-col,
+  .editorial-index-right-col {
+    width: 100%;
+  }
+
+  .editorial-index-right-col {
+    margin-top: 0; /* Reset desktop margin on mobile */
+  }
+
+  .editorial-index-right-col .editorial-index-title.invisible {
+    display: none; /* Hide alignment spacer header on mobile */
+  }
+  
+  .editorial-index-image-col {
+    display: block;
+    width: 100%;
+    height: clamp(220px, 32vh, 320px);
+    margin-top: 10px;
+    margin-bottom: 24px;
+    order: -1; /* Posiciona no topo da lista em dispositivos móveis */
+  }
+  
+  .editorial-index-sticky-image-container {
+    position: relative;
+    top: 0;
+    height: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .editorial-index-frame {
+    padding: 30px 20px;
+  }
+  
+  .editorial-index-title {
+    font-size: 2.4rem;
+    margin-bottom: 25px;
+  }
+  
+  .editorial-index-row-title-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Giant background Zine logo (Watermark occupy full fold) */
+.editorial-index-logo-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  width: 55%; /* Spans across both columns */
+  max-width: 600px;
+  opacity: 0.28; /* Increased visibility as requested */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Logo slide overlay (Static and centered on top of the slide image via bounds to avoid transform conflict) */
+.editorial-index-logo-slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; /* Centered without CSS transform */
+  width: 160px;
+  height: 200px;
+  object-fit: contain;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 6;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+/* Logo Z posicionado de lado (maior e à direita) */
+.editorial-index-logo-slide-side {
+  position: absolute !important;
+  top: 50% !important;
+  left: auto !important;
+  right: -10px !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: translateY(-50%) !important;
+  width: 280px !important;
+  height: auto !important;
+  opacity: 0.3 !important;
+  z-index: 6;
+}
+
+/* ==========================================================================
+   5 Versions of EDITORIAL Title Styles
+   ========================================================================== */
+
+/* Title Version Selector Widget */
+.title-version-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Neue Machina', sans-serif;
+  z-index: 10;
+  width: fit-content;
+}
+
+.selector-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: rgba(255, 253, 246, 0.85);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.selector-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.version-btn {
+  background: rgba(255, 253, 246, 0.15);
+  color: #fffdf6;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.version-btn:hover {
+  background: rgba(255, 253, 246, 0.35);
+  transform: translateY(-2px);
+}
+
+.version-btn.active {
+  background: #ffe600;
+  color: #111;
+  box-shadow: 0 4px 10px rgba(255, 230, 0, 0.35);
+}
+
+/* Style 2: Glitch Cyberpunk */
+.v2-glitch {
+  animation: v2-glitch-pulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes v2-glitch-pulse {
+  0%, 100% {
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+  }
+  33% {
+    text-shadow: -2px -2px 0px #00ffff, 2px 2px 0px #ffe600;
+    color: #fffdf6;
+  }
+  66% {
+    text-shadow: 2px -2px 0px #ffe600, -2px 2px 0px #00ffff;
+    color: #fff;
+  }
+}
+
+/* Style 3: Floating Wave Staggered */
+.v3-float-wrapper {
+  display: inline-block;
+  animation: v3-float-wave 2.2s infinite ease-in-out;
+}
+
+@keyframes v3-float-wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Style 5: Outline Brutalist */
+.v5-brutal.is-outline {
+  color: #111111 !important; /* Dark fill for extreme contrast on coral background */
+  -webkit-text-stroke: 2px #fffdf6; /* White outline */
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+.v5-brutal.is-outline.is-yellow {
+  color: #ffe600 !important; /* Yellow fill */
+  -webkit-text-stroke: 2px #fffdf6; /* White outline */
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+.v5-brutal:not(.is-outline) {
+  color: #fffdf6;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   New Geometrical Title Dispositions (Solid/Outline Brutalist Typography)
+   ========================================================================== */
+
+/* Style 2: Horizontal Row */
+.swiss-main-title.style-2 {
+  font-size: clamp(1.8rem, 3.8vw, 3rem) !important;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.swiss-main-title.style-2 .v-horizontal-title {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Style 3: Individual Vertical Stack */
+.swiss-main-title.style-3 .v-stacked-title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  line-height: 0.95;
+}
+
+/* Style 4: Diagonal Staircase Cascade */
+.swiss-main-title.style-4 .v-cascade-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 0.95;
+}
+
+/* Style 5: Double Block (EDI-TORIAL) */
+.swiss-main-title.style-5 {
+  font-size: clamp(3rem, 6.2vw, 6.2rem) !important;
+  line-height: 0.85;
+}
+
+.swiss-main-title.style-5 .v-double-block-title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.double-block-row {
+  display: flex;
+  gap: 8px;
+}
+
+/* Sumário Thumbnail & Orange Redirection Button */
+.editorial-index-hero-thumbnail {
+  margin: 10px 0 30px 0;
+  background-color: #fffdf6;
+  border: 3px solid #ff5a36;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15);
+  transform: rotate(-3deg);
+  max-width: 240px; /* Aumentado 20% (de 200px para 240px) */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.editorial-index-hero-thumbnail:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 8px 8px 0px rgba(255, 90, 54, 0.25);
+}
+
+.index-hero-thumb-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  filter: contrast(1.05);
+}
+
+.editorial-index-row-btn-wrapper {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.editorial-index-row-orange-btn {
+  background-color: #ff5a36;
+  color: #fffdf6;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: 'Neue Machina', sans-serif;
+  font-weight: 900;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.editorial-index-row-orange-btn:hover {
+  background-color: #ffe600;
+  color: #111;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.editorial-index-row-green-btn {
+  background-color: #00e676; /* Vibrant money green */
+  color: #111111; /* Stark black text for perfect readability */
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: 'Neue Machina', sans-serif;
+  font-weight: 900;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.editorial-index-row-green-btn:hover {
+  background-color: #ffe600; /* Yellow hover */
+  color: #111;
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   5 Glassmorphism Models for Geddy Lee Image Frame
+   ========================================================================== */
+
+/* Model 1: Frosted Cyber Glass (Light Orange Glow) */
+.editorial-index-hero-thumbnail.glass-style-1 {
+  background: rgba(255, 253, 246, 0.15) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 3px solid rgba(255, 90, 54, 0.6) !important;
+  box-shadow: 0 8px 32px 0 rgba(255, 90, 54, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Model 2: Dark Polarized Obsidian Glass */
+.editorial-index-hero-thumbnail.glass-style-2 {
+  background: rgba(17, 17, 17, 0.55) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 3px solid rgba(255, 253, 246, 0.2) !important;
+  box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Model 3: Prismatic Aurora Glass (Purple/Orange Gradient Overlay) */
+.editorial-index-hero-thumbnail.glass-style-3 {
+  background: linear-gradient(135deg, rgba(255, 90, 54, 0.15), rgba(139, 0, 255, 0.15)) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 3px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 10px 30px rgba(139, 0, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Model 4: Clean Float Glass (Minimal Border, Heavy Drop Shadow) */
+.editorial-index-hero-thumbnail.glass-style-4 {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Model 5: Retro Brutalist Zine Glass (Thick Dark Outline & Offset Shadow) */
+.editorial-index-hero-thumbnail.glass-style-5 {
+  background: rgba(255, 253, 246, 0.25) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 3px solid #111111 !important;
+  box-shadow: 6px 6px 0px #ff5a36, inset 0 0 8px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Glass Style Live Picker Widget */
+.glass-style-picker {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(17, 17, 17, 0.85);
+  border-radius: 20px;
+  padding: 3px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  font-family: 'Neue Machina', sans-serif;
+  font-size: 0.65rem;
+  color: #fffdf6;
+}
+
+.glass-style-picker span {
+  font-weight: 800;
+  color: rgba(255, 253, 246, 0.6);
+}
+
+.glass-picker-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 253, 246, 0.5);
+  font-size: 0.65rem;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.glass-picker-btn:hover {
+  color: #fffdf6;
+}
+
+.glass-picker-btn.active {
+  color: #ff5a36;
+  background: #fffdf6;
+}
+
+
+
