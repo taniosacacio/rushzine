@@ -6,6 +6,7 @@ export const PixCard = ({
   bannerImage,
   title = "Apoie com PIX",
   description = "Aponte a câmera do seu celular para apoiar o portal via PIX.",
+  buttonText = "Gerar QR Code",
   width = 388,
   height = 420,
   borderColor = "#32BCAD",
@@ -123,7 +124,7 @@ export const PixCard = ({
             fontSize: "1rem"
           }}
         >
-          Gerar QR Code
+          {buttonText}
         </button>
       </div>
     </div>

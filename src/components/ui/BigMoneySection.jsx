@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Confetti from 'react-confetti';
-import { ArrowRight } from 'lucide-react';
 import './BigMoneySection.css';
 
 export const BigMoneySection = ({ language }) => {
-  const [showConfetti, setShowConfetti] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
 
@@ -15,55 +12,36 @@ export const BigMoneySection = ({ language }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Content dictionary
   const content = {
     pt: {
-      title: 'VAI ROLAR OU VAI FLOPAR?',
-      p1: 'Temos um propósito muito claro com essa ZINE: entregar conteúdo de alta qualidade para os fãs, unindo conhecimento profundo e entretenimento. É o que já fazemos há mais de 15 anos, mas agora no formato que entrega a melhor experiência.',
-      p2: 'Tem de tudo: bibliografia, novidades, curiosidades, jogos, easter eggs, comércio e o coração da parada: a HISTÓRIA DOS FÃS DE RUSH.',
-      p3: 'CONTRIBUA com o seu "THE BIG MONEY" e faça a RUSH ZINE ROLAR de vez.',
-      campaignPeriodTitle: 'PERÍODO DA CAMPANHA:',
-      campaignStart: 'Início: 09 de julho',
-      campaignEnd: 'Término: 09 de agosto',
-      goalsIntro: 'A META DEFINE O RITMO:',
-      goals: [
-        { name: 'Bom e Modesto', label: '$400 dólares', value: 'Faremos 1 edição' },
-        { name: 'Legal, hein?!', label: '$600 dólares', value: 'Faremos 2 edições' },
-        { name: 'Estamos Ricos!', label: '$800 dólares', value: 'Faremos 3 edições' }
-      ],
-      note: '(Nota: Para contribuições maiores ou parcerias, entre em contato direto pelo e-mail: zine@portalrushzine.com)'
+      p1_short: 'Sem enrolação, nós precisamos do seu “Big Money”. Nosso trabalho é 100% Independente: Cada doação (ou o valor de um cafezinho) vai direto para os custos de servidor, licenças de software 3D e para manter este projeto vivo, fruto da nossa paixão pelo Rush.',
+      p1: 'Sem enrolação, nós precisamos do seu “Big Money”. Nosso trabalho é 100% Independente: Cada doação (ou o valor de um cafezinho) vai direto para os custos de servidor, licenças de software 3D e para manter este projeto vivo, fruto da nossa paixão pelo Rush. Nossa promessa é continuar produzindo conteúdo independente, profundo e de alta qualidade para a comunidade.',
+      p2: 'A Barra de Apoiadores: Todo fã que doar a partir de 3 dólares e fizer contato conosco via e-mail terá seu nome e link do perfil exibidos na nossa Barra de Apoiadores oficial. (Tenha paciência enquanto finalizamos a programação da barra visual no site — muita coisa está acontecendo agora, mas é nosso compromisso colocar seu perfil no ar em até 3 dias corridos).',
+      p3: 'Compartilhe: Não pode doar agora? Sem problema. Compartilhar a rushzine.com com outros fãs do Rush é fundamental.',
+      p4: 'Sem Paywalls: Esta Zine é totalmente gratuita. Você está financiando um projeto da comunidade, não comprando uma assinatura. Todas as contribuições são voluntárias.',
+      campaignPeriodTitle: 'CONTATO:',
+      campaignStart: 'yyz@rushzine.com',
+      campaignEnd: '+55 31-97210-2112'
     },
     en: {
-      title: 'VAI ROLAR OU VAI FLOPAR?',
-      p1: 'Temos um propósito muito claro com essa ZINE: entregar conteúdo de alta qualidade para os fãs, unindo conhecimento profundo e entretenimento. É o que já fazemos há mais de 15 anos, mas agora no formato que entrega a melhor experiência.',
-      p2: 'Tem de tudo: bibliografia, novidades, curiosidades, jogos, easter eggs, comércio e o coração da parada: a HISTÓRIA DOS FÃS DE RUSH.',
-      p3: 'CONTRIBUA com o seu "THE BIG MONEY" e faça a RUSH ZINE ROLAR de vez.',
-      campaignPeriodTitle: 'PERÍODO DA CAMPANHA:',
-      campaignStart: 'Início: 09 de julho',
-      campaignEnd: 'Término: 09 de agosto',
-      goalsIntro: 'A META DEFINE O RITMO:',
-      goals: [
-        { name: 'Bom e Modesto', label: '$400 dólares', value: 'Faremos 1 edição' },
-        { name: 'Legal, hein?!', label: '$600 dólares', value: 'Faremos 2 edições' },
-        { name: 'Estamos Ricos!', label: '$800 dólares', value: 'Faremos 3 edições' }
-      ],
-      note: '(Nota: Para contribuições maiores ou parcerias, entre em contato direto pelo e-mail: zine@portalrushzine.com)'
+      p1_short: 'No bullshit, we need your "Big Money". Our work is 100% independent: Every donation (or the cost of a coffee) goes straight to server costs, 3D software licenses, and keeping this passion project alive.',
+      p1: 'No bullshit, we need your "Big Money". Our work is 100% independent: Every donation (or the cost of a coffee) goes straight to server costs, 3D software licenses, and keeping this passion project alive. Our promise is to keep producing deep, high-quality, independent content for the community.',
+      p2: 'The Backers Bar: Every fan who donates $3 or more and reaches out via email will have their name and profile link displayed on our official Backers Bar. (Bear with us while we finish coding the visual bar on the site — a lot is happening right now, but we are committed to getting your profile up within 3 calendar days).',
+      p3: 'Spread the Word: Can\'t donate right now? No problem. Sharing rushzine.com with other Rush fans is essential.',
+      p4: 'No Paywalls: This Zine is completely free. You are funding a community project, not buying a subscription. All contributions are voluntary.',
+      campaignPeriodTitle: 'CONTACT:',
+      campaignStart: 'yyz@rushzine.com',
+      campaignEnd: '+55 31-97210-2112'
     },
     es: {
-      title: 'VAI ROLAR OU VAI FLOPAR?',
-      p1: 'Temos um propósito muito claro com essa ZINE: entregar conteúdo de alta qualidade para os fãs, unindo conhecimento profundo e entretenimento. É o que já fazemos há mais de 15 anos, mas agora no formato que entrega a melhor experiência.',
-      p2: 'Tem de tudo: bibliografia, novidades, curiosidades, jogos, easter eggs, comércio e o coração da parada: a HISTÓRIA DOS FÃS DE RUSH.',
-      p3: 'CONTRIBUA com o seu "THE BIG MONEY" e faça a RUSH ZINE ROLAR de vez.',
-      campaignPeriodTitle: 'PERÍODO DA CAMPANHA:',
-      campaignStart: 'Início: 09 de julho',
-      campaignEnd: 'Término: 09 de agosto',
-      goalsIntro: 'A META DEFINE O RITMO:',
-      goals: [
-        { name: 'Bom e Modesto', label: '$400 dólares', value: 'Faremos 1 edición' },
-        { name: 'Legal, hein?!', label: '$600 dólares', value: 'Faremos 2 ediciones' },
-        { name: 'Estamos Ricos!', label: '$800 dólares', value: 'Faremos 3 ediciones' }
-      ],
-      note: '(Nota: Para contribuições maiores ou parcerias, entre em contato direto pelo e-mail: zine@portalrushzine.com)'
+      p1_short: 'Sin tonterías, necesitamos tu "Big Money". Nuestro trabajo es 100% independiente: Cada donación (o el costo de un café) va directamente a los costos del servidor, licencias de software 3D y para mantener vivo este proyecto apasionante.',
+      p1: 'Sin tonterías, necesitamos tu "Big Money". Nuestro trabajo es 100% independiente: Cada donación (o el costo de un café) va directamente a los costos del servidor, licencias de software 3D y para mantener vivo este proyecto apasionante. Nuestra promesa es seguir produciendo contenido independiente, profundo y de alta calidad para la comunidad.',
+      p2: 'La Barra de Patrocinadores: Cada fan que done $3 o más y nos contacte por correo electrónico tendrá su nombre y enlace de perfil en nuestra Barra de Patrocinadores oficial. (Tenga paciencia mientras terminamos de programar la barra visual en el sitio — están sucediendo muchas cosas en este momento, pero estamos comprometidos a subir su perfil dentro de los 3 días calendario).',
+      p3: 'Pasa la Voz: ¿No puedes donar ahora mismo? No hay problema. Compartir rushzine.com con otros fans de Rush es fundamental.',
+      p4: 'Sin Paywalls: Esta Zine es completamente gratuita. Estás financiando un proyecto comunitario, no comprando una suscripción. Todas las contribuciones son voluntarias.',
+      campaignPeriodTitle: 'CONTACTO:',
+      campaignStart: 'yyz@rushzine.com',
+      campaignEnd: '+55 31-97210-2112'
     }
   };
 
@@ -91,27 +69,11 @@ export const BigMoneySection = ({ language }) => {
     });
   };
 
-  const handleGoalClick = (idx) => {
-    document.getElementById('apoio-8')?.scrollIntoView({ behavior: 'smooth' });
-    if (idx === 2) {
-      setShowConfetti(true);
-      setTimeout(() => {
-        setShowConfetti(false);
-      }, 5000);
-    }
-  };
-
   return (
     <section className="big-money-section-container">
-      {showConfetti && (
-        <div style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 9999, pointerEvents: 'none' }}>
-          <Confetti numberOfPieces={300} recycle={false} />
-        </div>
-      )}
-
       <div 
         className="big-money-card-layout"
-        style={{ '--bg-image': `url("${import.meta.env.BASE_URL}fundomoney.png")` }}
+        style={{ '--bg-image': `url("${import.meta.env.BASE_URL}The Big Money/money-rush-contribuicao.svg")` }}
       >
         {/* The Big Money Title */}
         <motion.h4 
@@ -143,84 +105,51 @@ export const BigMoneySection = ({ language }) => {
             </motion.span>
           ))}
         </motion.h4>
-
-        <h3 className="big-money-subtitle solid-subtitle">{highlightEditorialText(text.title)}</h3>
         
         <div className="big-money-modern-grid">
           <div className="big-money-text-content">
-            {(!isMobile || isExpanded) ? (
+            <p className="rush-font-p1">
+              {isMobile && !isExpanded 
+                ? highlightEditorialText(text.p1_short) 
+                : highlightEditorialText(text.p1)
+              }
+              {isMobile && !isExpanded && (
+                <span 
+                  onClick={() => setIsExpanded(true)}
+                  style={{ cursor: 'pointer', color: '#133215', fontWeight: 'bold', marginLeft: '5px', fontSize: '1.2rem', lineHeight: '1', whiteSpace: 'nowrap' }}
+                  title="Ler mais"
+                >
+                  ... Ler mais
+                </span>
+              )}
+            </p>
+            {(!isMobile || isExpanded) && (
               <>
-                <p className="rush-font-p1">{highlightEditorialText(text.p1)}</p>
                 <p className="rush-font-p2">{highlightEditorialText(text.p2)}</p>
-                <p className="big-money-paragraph highlight-paragraph">{highlightEditorialText(text.p3)}</p>
+                <p className="rush-font-p2">{highlightEditorialText(text.p3)}</p>
+                <p className="big-money-paragraph highlight-paragraph" style={{ marginTop: '0.5rem' }}>{highlightEditorialText(text.p4)}</p>
                 {isMobile && (
                   <span 
                     onClick={() => setIsExpanded(false)}
-                    style={{ cursor: 'pointer', color: '#133215', fontWeight: 'bold', display: 'block', marginTop: '10px', fontSize: '0.9rem', textDecoration: 'underline' }}
+                    style={{ cursor: 'pointer', color: '#133215', fontWeight: 'bold', display: 'block', marginTop: '10px', fontSize: '1rem', textDecoration: 'underline' }}
                   >
                     {language === 'en' ? 'Show less' : language === 'es' ? 'Mostrar menos' : 'Mostrar menos'}
                   </span>
                 )}
               </>
-            ) : (
-              <p className="rush-font-p1">
-                {highlightEditorialText(text.p1.substring(0, 140))}
-                <span 
-                  onClick={() => setIsExpanded(true)}
-                  style={{ cursor: 'pointer', color: '#133215', fontWeight: 'bold', marginLeft: '2px', fontSize: '1.2rem', lineHeight: '1' }}
-                  title="Ler mais"
-                >
-                  ...
-                </span>
-              </p>
             )}
           </div>
-          <div className="big-money-campaign-box">
+          <div 
+            className="big-money-campaign-box"
+            style={{ '--contact-bg-image': `url("${import.meta.env.BASE_URL}The Big Money/money-rush-contribuicao.svg")` }}
+          >
             <h4 className="campaign-box-title">{highlightEditorialText(text.campaignPeriodTitle)}</h4>
             <div className="campaign-dates">
-              <span className="campaign-date-item">{text.campaignStart}</span>
-              <span className="campaign-date-item">{text.campaignEnd}</span>
+              <span className="campaign-date-item" style={{ fontSize: '1.15rem' }}>{text.campaignStart}</span>
+              <span className="campaign-date-item" style={{ fontSize: '1.15rem' }}>{text.campaignEnd}</span>
             </div>
           </div>
         </div>
-
-        <p className="editorial-conditions-intro" style={{marginTop: '2.5rem'}}>
-          {highlightEditorialText(text.goalsIntro)}
-        </p>
-
-        {/* Visual Goal/Conditions Grid (Gradated color) */}
-        <div className="editorial-goals-grid">
-          {text.goals.map((g, idx) => (
-            <motion.div 
-              key={idx} 
-              className={`big-money-goal-card bg-money-card-${idx}`}
-              whileHover={{ 
-                scale: 1.02,
-              }}
-              transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-              onClick={() => handleGoalClick(idx)}
-            >
-              <div className="goal-card-main-info">
-                <span className="goal-name-title">{g.name}</span>
-                <span className="goal-label">{highlightEditorialText(g.label)}</span>
-              </div>
-              
-              <div className="goal-card-right-info">
-                <motion.div
-                  animate={{ x: [0, 6, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                  style={{ display: 'flex', alignItems: 'center', opacity: 0.9 }}
-                >
-                  <ArrowRight size={22} color="#133215" />
-                </motion.div>
-
-                <span className="goal-value">{g.value}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-        
-        <p className="big-money-note">{highlightEditorialText(text.note)}</p>
       </div>
     </section>
   );

@@ -76,34 +76,51 @@ export const BlahahaSection = ({ t, language }) => {
       title: 'BLAH-BLAH-HA!!!',
       subtitle: 'AH Não!!! Explicamos as piadas de Alex (e de Geddy Lee) em Dallas',
       explanationTitle: 'Explicando as Piadas',
-      explanationBody: 'Alex prepara o terreno para uma piada pornográfica local, dizendo que estava tomando banho, e logo em seguida faz um trocadilho com o nome de um filme pornô dos anos 70 gravado em Dallas chamado “Debbie Does Dallas”. Ao invés de “Debbie”, Alex provoca com a rima “Geddy”. O baixista do Rush entra na brincadeira com a piada de salsicha pelo seu personagem Gershon que na verdade é seu nome de batismo.'
+      explanationBody: 'Alex prepara o terreno para uma piada pornográfica local, dizendo que estava tomando banho, e logo em seguida faz um trocadilho com o nome de um filme pornô dos anos 70 gravado em Dallas chamado “Debbie Does Dallas”. Ao invés de “Debbie”, Alex provoca com a rima “Geddy”. O baixista do Rush entra na brincadeira com a piada de salsicha pelo seu personagem Gershon que na verdade é seu nome de batismo.',
+      dialogue: [
+        { speaker: 'Ged', text: 'Essa música é tão divertida!', side: 'left' },
+        { speaker: 'Alex', text: 'Ah, é mesmo?! Não sei se é tão divertida.', side: 'right' },
+        { speaker: 'Ged', text: 'Você já conhece meu amigo?', side: 'left' },
+        { speaker: 'Alex', text: 'Essa música é estranha.', side: 'right' },
+        { speaker: 'Ged', text: 'Diga oi para as pessoas.', side: 'left' },
+        { speaker: 'Alex', text: 'Ah! “Oi para as pessoas! É tão bom estar neste palco. É mesmo. Com certeza é bem melhor do que ficar à toa num hotel… eu não sabia bem o que fazer. Eu me vestia, me despia, aí depois me vestia, me despia até tomar um banho enquanto eu estava vestido. Eu estava todo ferrado!.. e escovei os dentes, eu acho… na semana passada! … e assisti aquele filme Geddy Does Dallas”\n\n[Público de Dallas vem a baixo].\n\nNão sei se você já viu esse filme?!', side: 'right' },
+        { speaker: 'Ged', text: 'Ah esse garotinho é tão sapequinha… uma salsicha sapequinha!', side: 'left' }
+      ]
     },
     en: {
       title: 'BLAH-BLAH-HA!!!',
       subtitle: 'Oh No, we explain Alex\'s (and Geddy Lee\'s) jokes in Dallas',
       explanationTitle: 'Explaining the Jokes',
-      explanationBody: 'Alex sets the stage for a local adult film joke, mentioning that he was showering, and immediately after makes a pun on the name of a famous 70s adult film based in Dallas called "Debbie Does Dallas". Instead of "Debbie", Alex provokes with the rhyming name "Geddy". The Rush bassist joins the fun with a sausage joke related to his character Gershon, which is actually his birth name.'
+      explanationBody: 'Alex sets the stage for a local adult film joke, mentioning that he was showering, and immediately after makes a pun on the name of a famous 70s adult film based in Dallas called "Debbie Does Dallas". Instead of "Debbie", Alex provokes with the rhyming name "Geddy". The Rush bassist joins the fun with a sausage joke related to his character Gershon, which is actually his birth name.',
+      dialogue: [
+        { speaker: 'Ged', text: 'This song is so much fun!', side: 'left' },
+        { speaker: 'Alex', text: 'Oh, really?! I don\'t know if it\'s that much fun.', side: 'right' },
+        { speaker: 'Ged', text: 'Have you met my friend?', side: 'left' },
+        { speaker: 'Alex', text: 'This song is weird.', side: 'right' },
+        { speaker: 'Ged', text: 'Say hi to the people.', side: 'left' },
+        { speaker: 'Alex', text: 'Oh! "Hi to the people! It\'s so nice to be on this stage. It really is. It\'s definitely way better than just hanging out in a hotel... I didn\'t quite know what to do. I got dressed, undressed, then got dressed again, undressed until I took a shower while I was dressed. I was all messed up!.. and brushed my teeth, I think... last week! ... and watched that movie Geddy Does Dallas"\n\n[Dallas crowd goes wild].\n\nI don\'t know if you\'ve seen that movie?!', side: 'right' },
+        { speaker: 'Ged', text: 'Oh this little boy is so naughty... a naughty sausage!', side: 'left' }
+      ]
     },
     es: {
       title: 'BLAH-BLAH-HA!!!',
       subtitle: '¡Ah no, explicamos los chistes de Alex (y de Geddy Lee) en Dallas',
       explanationTitle: 'Explicando los Chistes',
-      explanationBody: 'Alex prepara el terreno para un chiste local de cine para adultos, diciendo que se estaba bañando, y enseguida hace un juego de palabras con el nombre de una famosa película de los 70 rodada en Dallas llamada "Debbie Does Dallas". En lugar de "Debbie", Alex provoca con la rima "Geddy". El bajista de Rush se une al juego con un chiste de salchicha relacionado con su personaje Gershon, que en realidad es su nombre de pila.'
+      explanationBody: 'Alex prepara el terreno para un chiste local de cine para adultos, diciendo que se estaba bañando, y enseguida hace un juego de palabras con el nombre de una famosa película de los 70 rodada en Dallas llamada "Debbie Does Dallas". En lugar de "Debbie", Alex provoca con la rima "Geddy". El bajista de Rush se une al juego con un chiste de salchicha relacionado con su personaje Gershon, que en realidad es su nombre de pila.',
+      dialogue: [
+        { speaker: 'Ged', text: '¡Esta canción es tan divertida!', side: 'left' },
+        { speaker: 'Alex', text: '¡¿Ah, de verdad?! No sé si es tan divertida.', side: 'right' },
+        { speaker: 'Ged', text: '¿Ya conocen a mi amigo?', side: 'left' },
+        { speaker: 'Alex', text: 'Esta canción es extraña.', side: 'right' },
+        { speaker: 'Ged', text: 'Dile hola a la gente.', side: 'left' },
+        { speaker: 'Alex', text: '¡Ah! “¡Hola a la gente! Es tan bueno estar en este escenario. De verdad. Seguro que es mucho mejor que estar perdiendo el tiempo en un hotel… no sabía bien qué hacer. Me vestía, me desvestía, luego me vestía, me desvestía hasta que me di una ducha mientras estaba vestido. ¡Estaba todo jodido!.. y me cepillé los dientes, creo… ¡la semana pasada! … y vi esa película Geddy Does Dallas”\n\n[El público de Dallas se vuelve loco].\n\n¡¿No sé si ya viste esa película?!', side: 'right' },
+        { speaker: 'Ged', text: 'Ah, este niñito es tan travieso… ¡una salchicha traviesa!', side: 'left' }
+      ]
     }
   };
 
   const text = content[language] || content['pt'];
-
-  // Staggered dialogue entries
-  const dialogue = [
-    { speaker: 'Ged', text: 'Essa música é tão divertida!', side: 'left' },
-    { speaker: 'Alex', text: 'Ah, é mesmo?! Não sei se é tão divertida.', side: 'right' },
-    { speaker: 'Ged', text: 'Você já conhecem meu amigo?', side: 'left' },
-    { speaker: 'Alex', text: 'Essa música é estranha.', side: 'right' },
-    { speaker: 'Ged', text: 'Diga oi para as pessoas.', side: 'left' },
-    { speaker: 'Alex', text: 'Ah! “Oi para as pessoas! É tão bom estar neste palco. É mesmo. Com certeza é bem melhor do que ficar à toa num hotel… eu não sabia bem o que fazer. Eu me vestia, me despia, aí depois me vestia, me despia até tomar um banho enquanto eu estava vestido. Eu estava todo ferrado!.. e escovei os dentes, eu acho… na semana passada! … e assisti aquele filme Geddy Does Dallas”\n\n[Público de Dallas vem a baixo].\n\nNão sei se você já viu esse filme?!', side: 'right' },
-    { speaker: 'Ged', text: 'Ah esse garotinho é tão sapequinha… uma salsicha sapequinha!', side: 'left' }
-  ];
+  const dialogue = text.dialogue || [];
 
   return (
     <section className="blahaha-section" style={{ paddingTop: '0.5rem', marginTop: '0' }}>

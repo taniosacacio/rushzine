@@ -577,8 +577,8 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
                     className="editorial-poster-image"
                   />
                   <p className="editorial-image-caption">
-                    <span className="desktop-text">{highlightEditorialText("Tânios Acácio - Criador do Portal Rush Brasil tocando seu primeiro air guitar no show cover do Rush.")}</span>
-                    <span className="mobile-text">{highlightEditorialText("Tânios Acácio no seu 1º air guitar de Rush.")}</span>
+                    <span className="desktop-text">{highlightEditorialText(language === 'en' ? "Tânios Acácio - Creator of Portal Rush Brasil playing his first air guitar at a Rush cover show." : language === 'es' ? "Tânios Acácio - Creador de Portal Rush Brasil tocando su primer air guitar en un show tributo a Rush." : "Tânios Acácio - Criador do Portal Rush Brasil tocando seu primeiro air guitar no show cover do Rush.")}</span>
+                    <span className="mobile-text">{highlightEditorialText(language === 'en' ? "Tânios Acácio on his 1st Rush air guitar." : language === 'es' ? "Tânios Acácio en su 1º air guitar de Rush." : "Tânios Acácio no seu 1º air guitar de Rush.")}</span>
                   </p>
                 </div>
 
@@ -684,9 +684,9 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
                           {/* Digital Magazine Style Tooltip Card */}
                           {hoveredItem === item.id && (
                             <div className="sticker-tooltip-card">
-                              <span className="tooltip-page">{item.page}</span>
+                              <span className="tooltip-page">{item.page.replace('PÁG.', language === 'en' ? 'PAGE' : language === 'es' ? 'PÁG.' : 'PÁG.')}</span>
                               <span className="tooltip-title">{item.title}</span>
-                              <span className="tooltip-action">CLIQUE PARA LER</span>
+                              <span className="tooltip-action">{language === 'en' ? 'CLICK TO READ' : language === 'es' ? 'CLIC PARA LEER' : 'CLIQUE PARA LER'}</span>
                             </div>
                           )}
 

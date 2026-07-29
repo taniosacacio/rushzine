@@ -34,8 +34,50 @@ import { EditorialSection } from './components/ui/EditorialSection';
 import { BlahahaSection } from './components/ui/BlahahaSection';
 import { SectionSideLabel } from './components/ui/SectionSideLabel';
 import { AnimatedTitle } from './components/ui/AnimatedTitle';
+import { FAQAccordion } from './components/ui/FAQAccordion';
 import './index.css';
 import './hero.css';
+const faqs = {
+  pt: [
+    { q: "Qual é o PROPÓSITO da RushZine?", a: "PARAR. Queremos que você pare de verdade, deixe o celular de lado, desligue a TV e adentre profundamente na leitura da nossa Zine. É um convite para uma imersão total e sem distrações. O café está liberado com o Rush tocando no fundo." },
+    { q: "A RushZine é um projeto oficial da banda?", a: "Não. Temos contatos, conversamos diretamente com profissionais envolvidos com a banda, jornalistas, criadores de conteúdo e temos uma rede de contatos relevante. Eventualmente, conseguimos informações que chegam para a gente antes de grandes portais, e postaremos sempre com a anuência de nossas fontes. Mas sejamos claros: somos uma marca 100% independente, criada por fãs para a comunidade global." },
+    { q: "Existe diferença entre ler no computador ou no celular?", a: "Sim, desenhamos duas experiências distintas. A versão HORIZONTAL (para desktop) é a nossa experiência definitiva e mais completa, com total imersão e mais recursos interativos. Já a versão FLASH (para celular) mantém a nossa mesma entrega de qualidade, mas foi propositalmente desenhada num formato mais curto e dinâmico, ideal para telas menores." },
+    { q: "E quanto aos Direitos Autorais (Copyright)?", a: "Sabemos da dificuldade e da complexidade desse tema, e não queremos atravessar nenhuma zona cinzenta. Nosso único objetivo é celebrar o legado do Rush. Sempre citaremos as fontes e daremos os devidos créditos aos vídeos e imagens utilizados. No entanto, se alguma fonte, fotógrafo ou detentor de direitos não quiser o seu material em nossa Zine, basta entrar em contato e o conteúdo será retirado imediatamente." },
+    { q: "Qual é a relação da Zine com o Portal Rush Brasil?", a: "A RushZine é o mais novo projeto do Portal Rush Brasil, criado em 2010. Passamos por muitas \"indas e vindas\", começando como uma página mais eventual, até o trabalho se consolidar e se tornar uma marca relevante. Nesses 16 anos, trabalhamos ativamente no apoio a bandas covers e marcamos presença constante em grandes eventos pelo Brasil, como o Rush Fest. A Zine é a evolução natural dessa trajetória." },
+    { q: "Como funciona o \"The Big Money\" (Doações)?", a: "A leitura da Zine é totalmente gratuita e sem paywalls. As doações são voluntárias e usadas para: pagar os profissionais envolvidos, cobrir custos de servidores, licenças de ferramentas 3D e desenvolvimento. Por ser um financiamento coletivo da comunidade, as contribuições não são reembolsáveis." },
+    { q: "Vocês recebem dinheiro de outra forma (além das doações)?", a: "Sim! No Brasil, nossa marca é registrada e protegida sob o processo INPI nº 940225670 como fã-clube oficial. Para manter a operação viva, criamos e comercializamos itens exclusivos em alusão à banda através do camisasdorush.com.br e portalrushbrasil.com.br, contando com fornecedores para impressão e logística dos nossos produtos. Montink, Nuvemshop e Printify." },
+    { q: "Vocês têm e-commerce em quais países?", a: "Nossa ideia é estruturar um e-commerce oficial focado nos Estados Unidos e Canadá principalmente, seguindo as regras de um fã clube, sem ultrapassar o limite da ética. Se você se interessou, e quer ajudar entre em contato com a gente. yyz@rushzine.com ou +55-31-97210-2112." },
+    { q: "Com que frequência novas edições serão lançadas?", a: "Nossa meta é ter disponível ao menos uma revista mensal. O que vai ditar o ritmo e dar sequência a esse trabalho são as contribuições e o apoio dos nossos fãs e leitores." },
+    { q: "O que vocês fazem com meus dados?", a: "Respeitamos sua privacidade e jamais venderemos seus dados. Seu e-mail é utilizado apenas para o envio da Newsletter (caso você assine) ou para combinarmos a sua exibição na Barra de Apoiadores caso você faça uma doação. Para detalhes jurídicos, selecione o botão correspondente à lei da sua região abaixo (LGPD, GDPR ou CCPA)." },
+    { q: "Vocês usam Inteligência Artificial (IA) na Zine?", a: "Uma IA não conseguiria apresentar um produto neste formato, do jeito que foi feito. Estamos colocando 16 anos de fontes, pesquisa, contato e paixão na frente de qualquer robôzinho. Para o visual, nossos designers utilizam programas reais de modelagem 3D. A IA pode ser usada como ferramenta auxiliar para sugerir fontes ou estruturar linhas de texto, mas o trabalho pesado — aquele feito com o coração e a cabeça — é orgulhosamente realizado por humanos fãs de Rush." }
+  ],
+  en: [
+    { q: "What is the PURPOSE of RushZine?", a: "TO STOP. We want you to truly stop, put your phone aside, turn off the TV, and dive deeply into reading our Zine. It is an invitation for total immersion without distractions. Coffee is allowed, with Rush playing in the background." },
+    { q: "Is RushZine an official band project?", a: "No. We have contacts, we talk directly to professionals involved with the band, journalists, content creators, and we have a relevant network of contacts. Occasionally, we get information that reaches us before major portals, and we will always post it with our sources' consent. But let's be clear: we are a 100% independent brand, created by fans for the global community." },
+    { q: "Is there a difference between reading on a computer or a mobile phone?", a: "Yes, we designed two distinct experiences. The HORIZONTAL version (for desktop) is our definitive and most complete experience, with total immersion and more interactive features. The FLASH version (for mobile) maintains our same delivery quality but was purposely designed in a shorter, more dynamic format, ideal for smaller screens." },
+    { q: "What about Copyrights?", a: "We know how difficult and complex this topic is, and we don't want to cross any gray areas. Our sole goal is to celebrate the legacy of Rush. We will always cite sources and give due credit for the videos and images used. However, if any source, photographer, or rights holder does not want their material in our Zine, just contact us and the content will be removed immediately." },
+    { q: "What is the relationship between the Zine and Portal Rush Brasil?", a: "RushZine is the newest project from Portal Rush Brasil, created in 2010. We went through many ups and downs, starting as a more casual page until the work consolidated and became a relevant brand. Over these 16 years, we actively worked to support cover bands and were constantly present at major events across Brazil, like Rush Fest. The Zine is the natural evolution of this journey." },
+    { q: "How does \"The Big Money\" (Donations) work?", a: "Reading the Zine is completely free and without paywalls. Donations are voluntary and used to: pay the professionals involved, cover server costs, 3D tool licenses, and development. Since it is a community crowdfunding effort, contributions are non-refundable." },
+    { q: "Do you receive money in any other way (besides donations)?", a: "Yes! In Brazil, our brand is registered and protected under INPI process nº 940225670 as an official fan club. To keep the operation alive, we create and sell exclusive items alluding to the band through camisasdorush.com.br and portalrushbrasil.com.br, relying on suppliers for printing and logistics of our products: Montink, Nuvemshop, and Printify." },
+    { q: "In which countries do you have e-commerce?", a: "Our idea is to structure an official e-commerce focused mainly on the United States and Canada, following the rules of a fan club, without crossing ethical boundaries. If you're interested and want to help, contact us: yyz@rushzine.com or +55-31-97210-2112." },
+    { q: "How often will new editions be released?", a: "Our goal is to have at least one magazine available monthly. What will dictate the pace and continue this work are the contributions and support from our fans and readers." },
+    { q: "What do you do with my data?", a: "We respect your privacy and will never sell your data. Your e-mail is used solely for sending the Newsletter (if you subscribe) or to arrange your display on the Backers Bar if you make a donation. For legal details, select the button corresponding to the law of your region below (LGPD, GDPR, or CCPA)." },
+    { q: "Do you use Artificial Intelligence (AI) in the Zine?", a: "An AI could not present a product in this format, the way it was made. We are putting 16 years of sources, research, contact, and passion ahead of any little robot. For the visuals, our designers use actual 3D modeling programs. AI can be used as an auxiliary tool to suggest fonts or structure text lines, but the heavy lifting — that done with heart and head — is proudly carried out by human Rush fans." }
+  ],
+  es: [
+    { q: "¿Cuál es el PROPÓSITO de RushZine?", a: "PARAR. Queremos que te detengas de verdad, dejes el teléfono a un lado, apagues la televisión y te sumerjas profundamente en la lectura de nuestra Zine. Es una invitación a una inmersión total sin distracciones. El café está permitido, con Rush sonando de fondo." },
+    { q: "¿Es RushZine un proyecto oficial de la banda?", a: "No. Tenemos contactos, hablamos directamente con profesionales involucrados con la banda, periodistas, creadores de contenido y tenemos una red de contactos relevante. Ocasionalmente, obtenemos información que nos llega antes que a los grandes portales, y siempre la publicaremos con el consentimiento de nuestras fuentes. Pero seamos claros: somos una marca 100% independiente, creada por fans para la comunidad global." },
+    { q: "¿Hay diferencia entre leer en la computadora o en el teléfono móvil?", a: "Sí, diseñamos dos experiencias distintas. La versión HORIZONTAL (para escritorio) es nuestra experiencia definitiva y más completa, con inmersión total y más funciones interactivas. La versión FLASH (para móviles) mantiene nuestra misma calidad de entrega, pero fue diseñada a propósito en un formato más corto y dinámico, ideal para pantallas más pequeñas." },
+    { q: "¿Qué pasa con los Derechos de Autor (Copyright)?", a: "Sabemos lo difícil y complejo que es este tema, y no queremos cruzar ninguna zona gris. Nuestro único objetivo es celebrar el legado de Rush. Siempre citaremos las fuentes y daremos el crédito correspondiente a los videos e imágenes utilizados. Sin embargo, si alguna fuente, fotógrafo o titular de derechos no desea su material en nuestra Zine, solo tiene que contactarnos y el contenido será retirado de inmediato." },
+    { q: "¿Cuál es la relación de la Zine con el Portal Rush Brasil?", a: "RushZine es el proyecto más reciente de Portal Rush Brasil, creado en 2010. Pasamos por muchos altibajos, comenzando como una página más ocasional hasta que el trabajo se consolidó y se convirtió en una marca relevante. En estos 16 años, trabajamos activamente apoyando a bandas tributo y estuvimos constantemente presentes en grandes eventos por todo Brasil, como el Rush Fest. La Zine es la evolución natural de esta trayectoria." },
+    { q: "¿Cómo funciona \"The Big Money\" (Donaciones)?", a: "La lectura de la Zine es totalmente gratuita y sin paywalls. Las donaciones son voluntarias y se usan para: pagar a los profesionales involucrados, cubrir costos de servidores, licencias de herramientas 3D y desarrollo. Al ser un financiamiento colectivo de la comunidad, las contribuciones no son reembolsables." },
+    { q: "¿Reciben dinero de otra forma (además de donaciones)?", a: "¡Sí! En Brasil, nuestra marca está registrada y protegida bajo el proceso del INPI nº 940225670 como club de fans oficial. Para mantener viva la operación, creamos y vendemos artículos exclusivos alusivos a la banda a través de camisasdorush.com.br y portalrushbrasil.com.br, contando con proveedores para la impresión y logística de nuestros productos: Montink, Nuvemshop y Printify." },
+    { q: "¿Tienen e-commerce en qué países?", a: "Nuestra idea es estructurar un e-commerce oficial enfocado principalmente en Estados Unidos y Canadá, siguiendo las reglas de un club de fans, sin traspasar los límites éticos. Si estás interesado y quieres ayudar, contáctanos: yyz@rushzine.com o +55-31-97210-2112." },
+    { q: "¿Con qué frecuencia se lanzarán nuevas ediciones?", a: "Nuestra meta es tener al menos una revista disponible al mes. Lo que dictará el ritmo y dará continuidad a este trabajo son las contribuciones y el apoyo de nuestros fans y lectores." },
+    { q: "¿Qué hacen con mis datos?", a: "Respetamos tu privacidad y jamás venderemos tus datos. Tu correo electrónico se usa únicamente para el envío del Newsletter (si te suscribes) o para coordinar tu aparición en la Barra de Patrocinadores si realizas una donación. Para detalles legales, selecciona el botón correspondiente a la ley de tu región a continuación (LGPD, GDPR o CCPA)." },
+    { q: "¿Usan Inteligencia Artificial (IA) en la Zine?", a: "Una IA no podría presentar un producto en este formato, de la manera en que fue hecho. Estamos poniendo 16 años de fuentes, investigación, contactos y pasión por delante de cualquier pequeño robot. Para el aspecto visual, nuestros diseñadores utilizan programas reales de modelado 3D. La IA puede utilizarse como herramienta auxiliar para sugerir fuentes o estructurar líneas de texto, pero el trabajo pesado — el que se hace con el corazón y la cabeza — es llevado a cabo con orgullo por humanos fans de Rush." }
+  ]
+};
 
 const highlightText = (text) => {
   if (typeof text !== 'string') return text;
@@ -439,7 +481,7 @@ const App = () => {
       {/* ================================================================= */}
       <section id="dobra-3" className="dobra-section entrevista-section" style={{ scrollMarginTop: '80px', marginTop: '2rem', paddingTop: '4rem', width: '100%', position: 'relative' }}>
         <SectionSideLabel number="3" title={t.navEntrevistaBeato} animatedLogo={true} />
-        <AnimatedTitle />
+        <AnimatedTitle language={language} />
 
         <div className="hero-main-layout" style={{ paddingTop: '0px' }}>
           <div className="dashboard-video-pane">
@@ -553,14 +595,16 @@ const App = () => {
         <div className="footer-content-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingBottom: "60px", position: "relative", zIndex: 2, marginTop: "2rem" }}>
           <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: "1250px" }}>
             <BuyMeCoffeeCard 
-              title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Quero Pagar um Café para essa Zine</span>}
-              description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Pague um Café para a Gente para termos mais e mais <span style={{ color: '#ff8b54', fontWeight: 'bold' }}>ZINES</span></span>}
+              title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{language === 'en' ? 'Buy a Coffee for this Zine' : language === 'es' ? 'Comprar un Café para esta Zine' : 'Quero Pagar um Café para essa Zine'}</span>}
+              description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{language === 'en' ? 'Buy us a Coffee so we can have more and more ' : language === 'es' ? 'Cómpranos un Café para tener más y más ' : 'Pague um Café para a Gente para termos mais e mais '}<span style={{ color: '#ff8b54', fontWeight: 'bold' }}>ZINES</span></span>}
+              buttonText={language === 'en' ? 'Buy me a Coffee ☕' : language === 'es' ? 'Invitar un Café ☕' : 'Pagar um Café ☕'}
               image={`${import.meta.env.BASE_URL}imgi_17_buy-me-a-coffee.png`} 
               coffeeLink="https://buymeacoffee.com/portalrushzine" 
             />
             <PixCard 
               title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>🇧🇷 <span style={{color: '#009c3b'}}>P</span><span style={{color: '#ffdf00'}}>I</span><span style={{color: '#009c3b'}}>X</span>-<span style={{color: '#ff8b54'}}>ZINE</span></span>}
-              description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Faça um PIX e aumente as edições da <span style={{ color: '#ff8b54', fontWeight: 'bold' }}>ZINE</span> do Portal Rush Brasil.</span>}
+              description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{language === 'en' ? 'Make a PIX and increase the editions of ' : language === 'es' ? 'Haz un PIX y aumenta las ediciones de ' : 'Faça um PIX e aumente as edições da '}<span style={{ color: '#ff8b54', fontWeight: 'bold' }}>ZINE</span>{language === 'en' ? ' by Portal Rush Brasil.' : language === 'es' ? ' de Portal Rush Brasil.' : ' do Portal Rush Brasil.'}</span>}
+              buttonText={language === 'en' ? 'Generate QR Code' : language === 'es' ? 'Generar Código QR' : 'Gerar QR Code'}
               borderColor="#009c3b"
               borderBgColor="#ffdf00"
               accentColor="#009c3b"
@@ -568,9 +612,9 @@ const App = () => {
               qrImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
             />
             <PayPalCard 
-              title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>💳 PayPal Internacional</span>}
-              description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>Faça sua contribuição internacional com segurança via <span style={{ color: '#0079C1', fontWeight: 'bold' }}>PayPal</span>.</span>}
-              buttonText="Doar via PayPal 💳"
+              title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>💳 {language === 'en' ? 'International PayPal' : language === 'es' ? 'PayPal Internacional' : 'PayPal Internacional'}</span>}
+              description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{language === 'en' ? 'Make your international contribution securely via ' : language === 'es' ? 'Haz tu contribución internacional de forma segura vía ' : 'Faça sua contribuição internacional com segurança via '}<span style={{ color: '#0079C1', fontWeight: 'bold' }}>PayPal</span>.</span>}
+              buttonText={language === 'en' ? 'Donate via PayPal 💳' : language === 'es' ? 'Donar vía PayPal 💳' : 'Doar via PayPal 💳'}
               borderColor="#0079C1"
               borderBgColor="rgba(0, 121, 193, 0.3)"
               accentColor="#0079C1"
@@ -834,12 +878,21 @@ const App = () => {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', color: '#ffdf00', marginBottom: '15px' }}>
             <ShieldCheck size={32} />
             <h2 style={{ fontSize: '1.8rem', color: '#fff', margin: 0, fontFamily: "'BeyondTheLightedStage', sans-serif" }}>
-              {t.privacyTitle}
+              {language === 'en' ? 'SITE POLICIES / FAQ' : language === 'es' ? 'POLÍTICAS DEL SITIO / FAQ' : 'POLÍTICAS DO SITE / FAQ'}
             </h2>
           </div>
           <p style={{ color: '#aaa', fontSize: '1rem', maxWidth: '800px', margin: '0 auto 2.5rem auto', lineHeight: '1.6' }}>
             {t.privacyDesc}
           </p>
+
+          {/* FAQ */}
+          <div style={{ textAlign: 'left', maxWidth: '800px', margin: '0 auto 3rem auto' }}>
+            <FAQAccordion 
+              faqs={faqs[language] || faqs.pt} 
+              qLabel={language === 'en' ? 'Q:' : 'P:'}
+              aLabel={language === 'en' ? 'A:' : 'R:'}
+            />
+          </div>
 
           {/* Badges Legais */}
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px', marginBottom: '3rem' }}>

@@ -2,10 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import { animate } from 'animejs';
 import './AnimatedTitle.css';
 
-export const AnimatedTitle = () => {
+export const AnimatedTitle = ({ language = 'pt' }) => {
   const containerRef = useRef(null);
 
-  const text = "7 Momentos da Entrevista de Geddy Lee no Rick Beato (imprescindíveis).";
+  const content = {
+    pt: { text: "7 Momentos da Entrevista de Geddy Lee no Rick Beato (imprescindíveis).", highlight: "imprescindíveis" },
+    en: { text: "7 Essential Moments of Geddy Lee's Interview with Rick Beato.", highlight: "Essential" },
+    es: { text: "7 Momentos Esenciales de la Entrevista de Geddy Lee con Rick Beato.", highlight: "Esenciales" }
+  };
+  const { text, highlight } = content[language] || content['pt'];
 
   // Run Focus Blur animation on mount
   useEffect(() => {
@@ -40,7 +45,7 @@ export const AnimatedTitle = () => {
   const renderSplitText = () => {
     return text.split(' ').map((word, wordIdx) => {
       const isSeven = word === "7";
-      const isImp = word.includes("imprescindíveis");
+      const isImp = word.toLowerCase().includes(highlight.toLowerCase());
       
       const wordClass = `animated-word ${isSeven ? 'highlight-seven' : ''} ${isImp ? 'highlight-imp' : ''}`;
 
