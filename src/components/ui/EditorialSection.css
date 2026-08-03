@@ -763,7 +763,7 @@
   
   .swiss-main-title {
     order: 1;
-    font-size: clamp(2.8rem, 9.5vw, 4.4rem);
+    font-size: clamp(8rem, 28vw, 15rem);
     line-height: 0.95;
     text-align: center !important;
     margin: 10px auto 16px auto !important;
@@ -850,7 +850,7 @@
   }
   
   .swiss-main-title {
-    font-size: clamp(2.6rem, 9.5vw, 3.5rem);
+    font-size: clamp(5.5rem, 24vw, 8rem);
     line-height: 0.95;
     margin-top: 10px;
   }

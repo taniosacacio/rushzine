@@ -439,7 +439,7 @@ const App = () => {
       {/* ================================================================= */}
       {/* DOBRA 2: EDITORIAL EM VÍDEO                                      */}
       {/* ================================================================= */}
-      <section id="dobra-2" className="dobra-section editorial-section" style={{ position: 'relative', paddingTop: '4rem', paddingBottom: '4rem' }}>
+      <section id="dobra-2" className="dobra-section editorial-section" style={{ position: 'relative', paddingTop: '4rem', paddingBottom: '1rem' }}>
         <SectionSideLabel number="2" title={t.navEditorialVideo} animatedLogo={true} />
         <EditorialSection t={t} language={language} mode="poster" />
         
@@ -479,7 +479,7 @@ const App = () => {
       {/* ================================================================= */}
       {/* DOBRA 3: ENTREVISTA RICK BEATO                                   */}
       {/* ================================================================= */}
-      <section id="dobra-3" className="dobra-section entrevista-section" style={{ scrollMarginTop: '80px', marginTop: '2rem', paddingTop: '4rem', width: '100%', position: 'relative' }}>
+      <section id="dobra-3" className="dobra-section entrevista-section" style={{ scrollMarginTop: '80px', marginTop: '0rem', paddingTop: '2rem', width: '100%', position: 'relative' }}>
         <SectionSideLabel number="3" title={t.navEntrevistaBeato} animatedLogo={true} />
         <AnimatedTitle language={language} />
 
@@ -593,7 +593,7 @@ const App = () => {
         <BigMoneySection language={language} />
         
         <div className="footer-content-wrapper" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingBottom: "60px", position: "relative", zIndex: 2, marginTop: "2rem" }}>
-          <div style={{ display: "flex", gap: "24px", flexWrap: "wrap", justifyContent: "center", width: "100%", maxWidth: "1250px" }}>
+          <div className="donation-cards-container">
             <BuyMeCoffeeCard 
               title={<span style={{ fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{language === 'en' ? 'Buy a Coffee for this Zine' : language === 'es' ? 'Comprar un Café para esta Zine' : 'Quero Pagar um Café para essa Zine'}</span>}
               description={<span style={{ fontSize: '1.15rem', lineHeight: '1.4', display: 'block', marginTop: '10px', fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{language === 'en' ? 'Buy us a Coffee so we can have more and more ' : language === 'es' ? 'Cómpranos un Café para tener más y más ' : 'Pague um Café para a Gente para termos mais e mais '}<span style={{ color: '#ff8b54', fontWeight: 'bold' }}>ZINES</span></span>}
@@ -618,7 +618,7 @@ const App = () => {
               borderColor="#0079C1"
               borderBgColor="rgba(0, 121, 193, 0.3)"
               accentColor="#0079C1"
-              image={`${import.meta.env.BASE_URL}paypal-custom.jpeg`}
+              image={`${import.meta.env.BASE_URL}paypal-new-2.jpg`}
               paypalLink="https://www.paypal.com/donate/?hosted_button_id=ZD7N6PHUEWLSS"
             />
           </div>
@@ -674,10 +674,6 @@ const App = () => {
             <span>🇧🇷 camisasdorush.com.br (disponível no Brasil)</span>
           </a>
 
-          <div className="camisas-international-note">
-            <span className="intl-note-text">I Wanna / Lo Quiero</span>
-            <span className="intl-flags">🇨🇦 🇺🇸 🇬🇧 / 🇪🇸</span>
-          </div>
         </div>
       </section>
 
@@ -782,7 +778,7 @@ const App = () => {
                   <img src={`${import.meta.env.BASE_URL}iconeimail_semfundo.png`} alt="Mail Icon" style={{ width: '128px', height: '128px', objectFit: 'contain', margin: '-40px -10px -40px -20px' }} />
                   <h3 style={{ fontSize: '1.4rem', color: '#fff', margin: 0, fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{t.newsletterTitle}</h3>
                 </div>
-                <p style={{ color: '#bbb', fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '20px' }}>
+                <p style={{ color: '#bbb', fontSize: '1.25rem', lineHeight: '1.5', marginBottom: '20px' }}>
                   {language === 'pt' ? 'Receba novidades exclusivas sobre o Rush, lançamentos de zines e curiosidades direto na sua caixa de entrada.' : language === 'en' ? 'Receive exclusive Rush news, zine releases, and trivia directly in your inbox.' : 'Reciba noticias exclusivas sobre Rush, lanzamientos de zines y curiosidades directamente en tu correo.'}
                 </p>
               </div>
@@ -821,7 +817,7 @@ const App = () => {
                   <img src={`${import.meta.env.BASE_URL}imgi_32_whatsapp-icon.png`} alt="WhatsApp Icon" style={{ width: '44px', height: '44px', objectFit: 'contain' }} />
                   <h3 style={{ fontSize: '1.4rem', color: '#fff', margin: 0, fontFamily: "'BeyondTheLightedStage', sans-serif" }}>WhatsApp Oficial</h3>
                 </div>
-                <p style={{ color: '#bbb', fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '15px' }}>
+                <p style={{ color: '#bbb', fontSize: '1.25rem', lineHeight: '1.5', marginBottom: '15px' }}>
                   {language === 'pt' ? 'Converse diretamente com nossa equipe no WhatsApp oficial do Portal Rush Brasil.' : language === 'en' ? 'Chat directly with our team on the official Portal Rush Brasil WhatsApp.' : 'Chatea directamente con nuestro equipo en el WhatsApp oficial de Portal Rush Brasil.'}
                 </p>
                 <div style={{ color: '#fff', fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '20px', textAlign: 'center', letterSpacing: '1px' }}>
@@ -847,7 +843,7 @@ const App = () => {
                   <img src={`${import.meta.env.BASE_URL}iconezine_semfundo.png`} alt="Zine Icon" style={{ width: '128px', height: '128px', objectFit: 'contain', margin: '-40px -10px -40px -20px' }} />
                   <h3 style={{ fontSize: '1.4rem', color: '#fff', margin: 0, fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{t.socialTitle}</h3>
                 </div>
-                <p style={{ color: '#bbb', fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '20px' }}>
+                <p style={{ color: '#bbb', fontSize: '1.25rem', lineHeight: '1.5', marginBottom: '20px' }}>
                   {language === 'pt' ? 'Siga nossas redes para ver vídeos diários, podcasts e atualizações da comunidade.' : language === 'en' ? 'Follow our social channels for daily videos, podcasts, and community updates.' : 'Síguenos en redes para ver vídeos diarios, podcasts y actualizaciones de la comunidad.'}
                 </p>
               </div>

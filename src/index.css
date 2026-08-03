@@ -3030,11 +3030,13 @@ img { max-width: 100%; display: block; }
     padding-top: 2rem !important;
   }
   .footer-content-wrapper {
-    padding-bottom: 20px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
     margin-top: 1rem !important;
   }
   .dobra-section.blahaha-section {
     padding-top: 0 !important;
+    margin-top: 0 !important;
   }
 }
 
@@ -3056,4 +3058,33 @@ img { max-width: 100%; display: block; }
 @keyframes vinyl-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* --- Donation Cards Container (Mobile Horizontal Scroll) --- */
+.donation-cards-container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1250px;
+}
+
+@media (max-width: 768px) {
+  .donation-cards-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 10px 20px 0px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .donation-cards-container::-webkit-scrollbar {
+    display: none;
+  }
+  .donation-cards-container > * {
+    flex: 0 0 85%;
+    max-width: 300px;
+    scroll-snap-align: center;
+  }
 }
