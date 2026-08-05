@@ -35,6 +35,7 @@ export const PixCard = ({
   return (
     <>
     <div
+      className="donation-card"
       ref={borderRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
@@ -65,12 +66,13 @@ export const PixCard = ({
       }}
     >
       <div
+        className="donation-card-img"
         style={{
           width: "100%",
           height: 240,
           borderRadius: "1rem",
           overflow: "hidden",
-          background: "#121212",
+          background: "#fff",
           marginBottom: 16,
           display: "flex",
           justifyContent: "center",
@@ -85,7 +87,7 @@ export const PixCard = ({
           style={{
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            objectFit: "contain",
             display: "block",
             transition: "transform 0.5s ease",
             transform: hovered ? "scale(1.05)" : "scale(1)",
@@ -162,6 +164,8 @@ export const PixCard = ({
               padding: "24px",
               maxWidth: "500px",
               width: "100%",
+              maxHeight: "85vh",
+              overflowY: "auto",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -175,13 +179,19 @@ export const PixCard = ({
                 position: "absolute",
                 top: "16px",
                 right: "16px",
-                background: "transparent",
+                background: "rgba(0,0,0,0.08)",
+                borderRadius: "50%",
+                width: "36px",
+                height: "36px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
                 border: "none",
-                fontSize: "28px",
+                fontSize: "24px",
                 cursor: "pointer",
-                color: "#666",
+                color: "#444",
                 lineHeight: 1,
-                padding: "0 8px"
+                padding: "0"
               }}
             >
               &times;
@@ -195,7 +205,7 @@ export const PixCard = ({
               style={{
                 width: "100%",
                 height: "auto",
-                maxHeight: "70vh",
+                maxHeight: "50vh",
                 objectFit: "contain",
                 display: "block",
                 borderRadius: "0.5rem"

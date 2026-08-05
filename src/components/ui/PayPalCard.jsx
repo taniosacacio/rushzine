@@ -36,6 +36,7 @@ export const PayPalCard = ({
   return (
     <>
     <div
+      className="donation-card"
       ref={borderRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
@@ -66,12 +67,13 @@ export const PayPalCard = ({
       }}
     >
       <div
+        className="donation-card-img"
         style={{
           width: "100%",
           height: 180, // Slightly reduced to fit both buttons beautifully within 420px height
           borderRadius: "1rem",
           overflow: "hidden",
-          background: "#121212",
+          background: "#fff",
           marginBottom: 12,
         }}
       >
@@ -81,7 +83,7 @@ export const PayPalCard = ({
           style={{
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            objectFit: "contain",
             display: "block",
             transition: "transform 0.5s ease",
             transform: hovered ? "scale(1.05)" : "scale(1)",
@@ -189,6 +191,8 @@ export const PayPalCard = ({
               borderRadius: "1.5rem",
               maxWidth: "400px",
               width: "100%",
+              maxHeight: "85vh",
+              overflowY: "auto",
               textAlign: "center",
               border: `2px solid ${accentColor}`,
               boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
@@ -201,10 +205,16 @@ export const PayPalCard = ({
                 position: "absolute",
                 top: "12px",
                 right: "12px",
-                background: "transparent",
+                background: "rgba(255,255,255,0.1)",
+                borderRadius: "50%",
+                width: "36px",
+                height: "36px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
                 border: "none",
                 color: "#ff5a36",
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
                 cursor: "pointer",
                 fontWeight: "bold",
                 lineHeight: 1
@@ -219,7 +229,7 @@ export const PayPalCard = ({
               <img 
                 src={qrImage} 
                 alt="PayPal QR Code" 
-                style={{ width: "240px", height: "240px", display: "block", borderRadius: "0.5rem" }} 
+                style={{ width: "100%", height: "auto", maxHeight: "40vh", objectFit: "contain", display: "block", borderRadius: "0.5rem" }} 
               />
             </div>
             <p style={{ color: "#aaa", fontSize: "0.9rem", margin: 0, lineHeight: "1.4" }}>

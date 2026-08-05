@@ -32,6 +32,7 @@ export const BuyMeCoffeeCard = ({
 
   return (
     <div
+      className="donation-card"
       ref={borderRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setHovered(true)}
@@ -62,6 +63,7 @@ export const BuyMeCoffeeCard = ({
       }}
     >
       <div
+        className="donation-card-img coffee-img"
         style={{
           width: "100%",
           height: 240,

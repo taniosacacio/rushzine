@@ -608,7 +608,7 @@ const App = () => {
               borderColor="#009c3b"
               borderBgColor="#ffdf00"
               accentColor="#009c3b"
-              bannerImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
+              bannerImage={`${import.meta.env.BASE_URL}pix-banner.jpg`} 
               qrImage={`${import.meta.env.BASE_URL}pix-qrcode.jpeg`} 
             />
             <PayPalCard 
@@ -683,6 +683,25 @@ const App = () => {
       <section id="dobra-8" className="dobra-section anika-sensorial-section" ref={anikaRef} style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#0b0b10', paddingTop: '4rem', paddingBottom: '5rem' }}>
         <SectionSideLabel number="8" title={t.navAnikaNilles} />
         
+        {/* Background Video */}
+        <div className="anika-video-mask">
+          <video 
+            ref={anikaVideoRef}
+            className="anika-bg-video"
+            src={`${import.meta.env.BASE_URL}vdanika.mp4#t=113,153`}
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            onTimeUpdate={(e) => {
+              if (e.target.currentTime >= 153) {
+                e.target.currentTime = 113;
+              }
+            }}
+          />
+          <div className="anika-video-overlay"></div>
+        </div>
+
         <div className="anika-sensorial-container" style={{ maxWidth: '1250px', margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 2 }}>
           
 
