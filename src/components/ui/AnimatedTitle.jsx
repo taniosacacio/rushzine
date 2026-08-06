@@ -7,8 +7,8 @@ export const AnimatedTitle = ({ language = 'pt' }) => {
 
   const content = {
     pt: { text: "7 Momentos da Entrevista de Geddy Lee no Rick Beato (imprescindíveis).", highlight: "imprescindíveis" },
-    en: { text: "7 Essential Moments of Geddy Lee's Interview with Rick Beato.", highlight: "Essential" },
-    es: { text: "7 Momentos Esenciales de la Entrevista de Geddy Lee con Rick Beato.", highlight: "Esenciales" }
+    en: { text: "7 Moments of Geddy Lee's Interview with Rick Beato (essential).", highlight: "essential" },
+    es: { text: "7 Momentos de la Entrevista de Geddy Lee con Rick Beato (imprescindibles).", highlight: "imprescindibles" }
   };
   const { text, highlight } = content[language] || content['pt'];
 
@@ -45,9 +45,10 @@ export const AnimatedTitle = ({ language = 'pt' }) => {
   const renderSplitText = () => {
     return text.split(' ').map((word, wordIdx) => {
       const isSeven = word === "7";
+      const isMomento = word.toLowerCase().startsWith("momento") || word.toLowerCase().startsWith("moment");
       const isImp = word.toLowerCase().includes(highlight.toLowerCase());
       
-      const wordClass = `animated-word ${isSeven ? 'highlight-seven' : ''} ${isImp ? 'highlight-imp' : ''}`;
+      const wordClass = `animated-word ${isSeven ? 'highlight-seven' : ''} ${isMomento ? 'highlight-momento' : ''} ${isImp ? 'highlight-imp' : ''}`;
 
       return (
         <span key={wordIdx} className={wordClass}>

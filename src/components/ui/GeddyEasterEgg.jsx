@@ -112,7 +112,7 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
           onClick={handleOutsideClick}
         >
           <img 
-            src={`${import.meta.env.BASE_URL}geddy-bust-removebg.png`} 
+            src={`${import.meta.env.BASE_URL}busto-new.jpeg`} 
             alt="Geddy Lee sliced sculpture" 
           />
 

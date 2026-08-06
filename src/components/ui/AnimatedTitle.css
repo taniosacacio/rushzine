@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+
 .animated-title-container {
   max-width: 1400px;
   margin: 0 auto 3rem auto;
@@ -28,6 +30,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .animated-word {
@@ -40,10 +43,16 @@
 }
 
 /* Highlight elements */
-.highlight-seven .animated-char {
+.highlight-seven .animated-char,
+.highlight-momento .animated-char {
   color: #ff5a36;
   font-weight: 900;
+  font-family: 'Rye', 'Bodoni MT', serif;
   text-shadow: 0 0 10px rgba(255, 90, 54, 0.4);
+}
+
+.highlight-seven .animated-char {
+  font-size: 2em;
 }
 
 .highlight-imp .animated-char {

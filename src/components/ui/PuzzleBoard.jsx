@@ -7,7 +7,7 @@ const PuzzleBoard = ({
   targetWordLength = 7, 
   clickedLetters = [],
   onReset,
-  instruction = "Clique diretamente nas letras do\nbusto ou use o seu teclado."
+  instruction = "Digite o nome do personagem da imagem para resolver o \"Puzzlee\".",
 }) => {
   const slots = Array.from({ length: targetWordLength });
 
