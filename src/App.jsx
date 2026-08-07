@@ -320,12 +320,12 @@ function App() {
   };
 
   const videoSrc = isGershonActive
-    ? 'https://www.youtube.com/embed/8WYWcGOGwog?autoplay=1'
+    ? 'https://www.youtube.com/embed/8WYWcGOGwog?autoplay=1&playsinline=1'
     : (isEasterEggActive
-      ? 'https://www.youtube.com/embed/wk_Dlx6VL6c?autoplay=1&rel=0'
+      ? 'https://www.youtube.com/embed/wk_Dlx6VL6c?autoplay=1&rel=0&playsinline=1'
       : (videoStart !== null
-        ? `https://www.youtube.com/embed/GLkvbCn3xbw?start=${videoStart}&autoplay=1&rel=0`
-        : 'https://www.youtube.com/embed/GLkvbCn3xbw?autoplay=0&showinfo=0&rel=0'));
+        ? `https://www.youtube.com/embed/GLkvbCn3xbw?start=${videoStart}&autoplay=1&rel=0&playsinline=1`
+        : 'https://www.youtube.com/embed/GLkvbCn3xbw?autoplay=0&showinfo=0&rel=0&playsinline=1'));
 
   return (
     <>
@@ -492,7 +492,6 @@ function App() {
           <div className="dashboard-video-pane">
             <div className="bento-video">
               <iframe
-                key={videoStart}
                 src={videoSrc}
                 title="Geddy Lee & Alex Lifeson — Rick Beato Interview"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

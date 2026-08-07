@@ -247,7 +247,7 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
           >
             <video 
               src={`${import.meta.env.BASE_URL}Animacao_Geddy_Lee_Site.mp4`}
-              data-lazy="true" preload="none"
+              data-lazy="true" preload="auto" autoPlay
               playsInline
               onEnded={() => setShowAnimationVideo(false)}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
