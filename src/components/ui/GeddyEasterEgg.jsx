@@ -90,6 +90,16 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
 
   return (
     <section className={`easter-egg-section ${isUnlocked && !showAnimationVideo ? 'reward-unlocked' : ''}`}>
+      {(!isUnlocked || showAnimationVideo) && (
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="easter-egg-bg-video"
+          src={`${import.meta.env.BASE_URL}magnific_pixardreamworks-3dcomplet_ksjGjy916B.mp4`}
+        />
+      )}
       {showConfetti && <Confetti recycle={false} numberOfPieces={600} gravity={0.15} />}
       <div className="easter-egg-header" style={{ paddingTop: '3rem' }}>
         <h2>{t.easterEggTitle}</h2>

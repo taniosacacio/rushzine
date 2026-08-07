@@ -2122,12 +2122,26 @@ img { max-width: 100%; display: block; }
   transform: translateX(-50%);
   width: 100vw;
   height: 100%;
-  background-image: url('/Fundo1puzzle.jpeg');
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
   opacity: 0.85; /* slight opacity to blend if needed, or 1 */
+  transition: background-image 1s ease-in-out;
+}
+
+.easter-egg-bg-video {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.85;
+
   transition: background-image 1s ease-in-out;
 }
 
