@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Trash2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './PuzzleBoard.css';
@@ -8,12 +8,53 @@ const PuzzleBoard = ({
   clickedLetters = [],
   onReset,
   instruction = "Digite o nome do personagem da imagem para resolver o \"Puzzlee\".",
+  onLetterType
 }) => {
+  const inputRef = useRef(null);
+
+  const handleContainerClick = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const val = e.target.value;
+    if (val.length > 0 && onLetterType) {
+      const lastChar = val.slice(-1).toUpperCase();
+      if (lastChar.match(/^[A-Z]$/)) {
+        onLetterType(lastChar);
+      }
+      e.target.value = '';
+    }
+  };
   const slots = Array.from({ length: targetWordLength });
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <div className="easter-egg-spelling-container">
+      <div 
+        className="easter-egg-spelling-container"
+        onClick={handleContainerClick}
+        style={{ position: 'relative', cursor: 'text' }}
+      >
+        <input 
+          ref={inputRef}
+          type="text"
+          onChange={handleInputChange}
+          style={{ 
+            position: 'absolute', 
+            opacity: 0, 
+            height: 0, 
+            width: 0, 
+            border: 'none', 
+            padding: 0, 
+            margin: 0,
+            overflow: 'hidden'
+          }}
+          autoComplete="off"
+          autoCorrect="off"
+          spellCheck="false"
+        />
         {instruction && (
           <p className="easter-egg-instruction-inside">
             {instruction.split('\n').map((line, idx) => (

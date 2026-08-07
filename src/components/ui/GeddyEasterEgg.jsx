@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Confetti from 'react-confetti';
-import { Sparkles, Trash2, Eye, EyeOff, Baby, Guitar } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import PuzzleBoard from './PuzzleBoard';
 
 const secretCode = ['G', 'E', 'R', 'S', 'H', 'O', 'N'];
@@ -101,7 +101,7 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
         />
       )}
       {showConfetti && <Confetti recycle={false} numberOfPieces={600} gravity={0.15} />}
-      <div className="easter-egg-header" style={{ paddingTop: '3rem' }}>
+      <div className="easter-egg-header">
         <h2>{t.easterEggTitle}</h2>
         <p className="easter-egg-subtitle">
           {isUnlocked ? "YOU GERSHED!!!" : t.easterEggSubtitle}
@@ -134,30 +134,20 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
               key={idx}
               data-letter={zone.letter}
               onClick={(e) => { if (!isClicked) handleLetterClick(zone.letter, e); else e.stopPropagation(); }}
-              className="puzzle-piece"
+              className="puzzle-piece puzzle-piece-btn"
               whileTap={{ backgroundColor: "rgba(124, 58, 237, 0.6)", scale: 0.95 }}
               animate={{
                 backgroundColor: "transparent",
                 boxShadow: "none"
               }}
               style={{
-                position: 'absolute',
                 top: zone.top,
                 left: zone.left,
                 width: zone.width,
                 height: zone.height,
                 cursor: isClicked ? 'default' : 'pointer',
                 border: showDebugBorders ? '1px dashed rgba(255,0,0,0.5)' : 'none',
-                borderRadius: '50%',
-                outline: 'none',
-                padding: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
                 color: showDebugBorders ? '#E50000' : 'transparent',
-                fontSize: '10px',
-                fontWeight: 'bold',
-                zIndex: 20
               }}
               title={showDebugBorders ? `Letter ${zone.letter}` : ''}
             >
@@ -192,11 +182,11 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
             clickedLetters={userCode} 
             onReset={clearSequence}
             instruction={t.easterEggInstruction} 
+            onLetterType={(letter) => handleLetterClick(letter, { stopPropagation: () => {} })}
           />
 
-          {/* 1st mistake -> Just text */}
-          {errorCount === 1 && (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', width: '100%', marginTop: '16px' }}>
+          {errorCount > 0 && (
+            <div className="easter-egg-error-container">
               <motion.div 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -204,52 +194,20 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
                 style={{ width: 'fit-content' }}
               >
                 <Sparkles size={14} />
-                <span>{t.easterEggError1}</span>
+                <span>
+                  {errorCount === 1 ? t.easterEggError1 : errorCount <= 3 ? t.easterEggError2 : t.easterEggError3}
+                </span>
               </motion.div>
-            </div>
-          )}
 
-          {/* 2nd and 3rd mistake -> Image and message */}
-          {(errorCount === 2 || errorCount === 3) && (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', width: '100%', marginTop: '16px' }}>
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="easter-egg-hint-badge"
-                style={{ width: 'fit-content' }}
-              >
-                <Sparkles size={14} />
-                <span>{t.easterEggError2}</span>
-              </motion.div>
-              <motion.img 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                src={`${import.meta.env.BASE_URL}Geddy_lee_erro..jpeg`} 
-                alt="Erro 2" 
-                style={{ 
-                  width: '100%', 
-                  maxWidth: '280px', 
-                  borderRadius: '12px', 
-                  border: '2px solid rgba(255, 215, 0, 0.4)', 
-                  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.6)',
-                  display: 'block' 
-                }} 
-              />
-            </div>
-          )}
-
-          {/* After 3rd mistake -> Message only */}
-          {errorCount > 3 && (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', width: '100%', marginTop: '16px' }}>
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="easter-egg-hint-badge"
-                style={{ width: 'fit-content' }}
-              >
-                <Sparkles size={14} />
-                <span>{t.easterEggError3}</span>
-              </motion.div>
+              {(errorCount === 2 || errorCount === 3) && (
+                <motion.img 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  src={`${import.meta.env.BASE_URL}Geddy_lee_erro..jpeg`} 
+                  alt="Erro de clique" 
+                  className="easter-egg-error-image"
+                />
+              )}
             </div>
           )}
 
@@ -307,7 +265,7 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h3 className="reward-quote" style={{ fontSize: '1.4rem', fontStyle: 'italic', lineHeight: '1.5', textAlign: 'center' }}>
+            <h3 className="reward-quote reward-quote-text">
               {t.easterEggRewardQuote}
             </h3>
             <div className="reward-video-wrapper">
@@ -317,8 +275,7 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
               href="https://www.belasletras.com.br/loja/busca.php?loja=1194178&palavra_busca=My+Effin+Life" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="reward-banner-belas-letras"
-              style={{ textDecoration: 'none' }}
+              className="reward-banner-belas-letras reward-banner-belas-letras-link"
             >
               <div className="banner-text">
                 <h4>{t.easterEggRewardTitle}</h4>
