@@ -525,7 +525,7 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
 
             {/* Brand Name Upper Right */}
             <div className="poster-brand-header">
-              <img src={`${import.meta.env.BASE_URL}logo_portalrush.png`} alt="Portal Rush Brasil Logo" className="poster-logo-img" />
+              <img loading="lazy" src={`${import.meta.env.BASE_URL}logo_portalrush.png`} alt="Portal Rush Brasil Logo" className="poster-logo-img" />
               <span>{highlightEditorialText("RUSH ZINE")}</span>
             </div>
 
@@ -537,8 +537,8 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
 
             {/* Scattered Background Stickers Collage */}
             <div className="poster-stickers-collage-bg">
-              <img src={`${import.meta.env.BASE_URL}rushstickers/background stickers alpha-total.png`} className="bg-collage-full-img" alt="" />
-              <img src={`${import.meta.env.BASE_URL}rushstickers/80-3-signals-dalmata-alpha.png`} className="bg-dalmata-large-bg" alt="" />
+              <img loading="lazy" src={`${import.meta.env.BASE_URL}rushstickers/background stickers alpha-total.png`} className="bg-collage-full-img" alt="" />
+              <img loading="lazy" src={`${import.meta.env.BASE_URL}rushstickers/80-3-signals-dalmata-alpha.png`} className="bg-dalmata-large-bg" alt="" />
             </div>
 
             {/* Brand Logo Watermark Background (Animated with Framer Motion on view) */}
@@ -549,7 +549,7 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
               viewport={{ once: false, margin: "-100px" }}
               transition={{ type: 'spring', duration: 1.2, bounce: 0.15 }}
             >
-              <img src={`${import.meta.env.BASE_URL}Logo_PortalRushBrasil_Branca_SEM_NOME.png`} alt="Watermark Logo" />
+              <img loading="lazy" src={`${import.meta.env.BASE_URL}Logo_PortalRushBrasil_Branca_SEM_NOME.png`} alt="Watermark Logo" />
             </motion.div>
 
             {/* Poster Content Grid */}
@@ -571,8 +571,7 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
                 
                 {/* Tânios Guitar Image */}
                 <div className="editorial-poster-image-container">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}tanios_guita_air_acacio.png`} 
+                  <img loading="lazy" src={`${import.meta.env.BASE_URL}tanios_guita_air_acacio.png`} 
                     alt="Tânios Acácio tocando air guitar" 
                     className="editorial-poster-image"
                   />
@@ -610,8 +609,8 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
                 {/* Scrolling Stickers Tape Watermark */}
                 <div className="poster-stickers-tape">
                   <div className="stickers-tape-track">
-                    <img src={`${import.meta.env.BASE_URL}PORTAL_RUSH_STICKERS.jpeg`} alt="Stickers 1" className="stickers-img" />
-                    <img src={`${import.meta.env.BASE_URL}PORTAL_RUSH_STICKERS.jpeg`} alt="Stickers 2" className="stickers-img" />
+                    <img loading="lazy" src={`${import.meta.env.BASE_URL}PORTAL_RUSH_STICKERS.jpeg`} alt="Stickers 1" className="stickers-img" />
+                    <img loading="lazy" src={`${import.meta.env.BASE_URL}PORTAL_RUSH_STICKERS.jpeg`} alt="Stickers 2" className="stickers-img" />
                   </div>
                 </div>
 
@@ -690,8 +689,7 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
                             </div>
                           )}
 
-                          <img 
-                            src={`${import.meta.env.BASE_URL}INFOGRAFICO MENU ZINE/${item.file}`} 
+                          <img loading="lazy" src={`${import.meta.env.BASE_URL}INFOGRAFICO MENU ZINE/${item.file}`} 
                             alt={item.title} 
                             className="sticker-menu-img"
                           />
@@ -734,8 +732,7 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
               {/* Column 1 - Left Submenu */}
               <div className="editorial-index-left-col relative">
                 <div className="editorial-index-hero-thumbnail glass-style-5">
-                  <img 
-                    src={`${import.meta.env.BASE_URL}Bottons/Botton-Geddylee-Zine.png`} 
+                  <img loading="lazy" src={`${import.meta.env.BASE_URL}Bottons/Botton-Geddylee-Zine.png`} 
                     alt="Hero Geddy Lee Thumbnail" 
                     className="index-hero-thumb-img" 
                   />

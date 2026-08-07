@@ -38,8 +38,7 @@ export const SectionSideLabel = ({ number, title, id, animatedLogo }) => {
   return (
     <h2 id={id} ref={containerRef} className="section-side-label-wrapper" style={{ position: 'relative' }}>
       {animatedLogo && (
-        <img 
-          ref={logoRef}
+        <img loading="lazy" ref={logoRef}
           src={logoSrc}
           alt="Zine Logo"
           style={{ 

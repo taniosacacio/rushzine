@@ -81,8 +81,7 @@ export const PixCard = ({
           boxSizing: "border-box"
         }}
       >
-        <img
-          src={bannerImage}
+        <img loading="lazy" src={bannerImage}
           alt="Apoie o Portal"
           style={{
             width: "100%",
@@ -199,8 +198,7 @@ export const PixCard = ({
             <h3 style={{ color: "#333", marginTop: 0, marginBottom: "20px", fontSize: "24px", fontWeight: "bold", fontFamily: "var(--font-family, sans-serif)" }}>
               {title}
             </h3>
-            <img 
-              src={qrImage} 
+            <img loading="lazy" src={qrImage} 
               alt="PIX QR Code" 
               style={{
                 width: "100%",

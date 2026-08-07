@@ -91,8 +91,8 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
   return (
     <section className={`easter-egg-section ${isUnlocked && !showAnimationVideo ? 'reward-unlocked' : ''}`}>
       {(!isUnlocked || showAnimationVideo) && (
-        <video 
-          autoPlay 
+        <video  
+          data-lazy="true" preload="none" 
           loop 
           muted 
           playsInline 
@@ -121,8 +121,7 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
           className="easter-egg-image-wrapper"
           onClick={handleOutsideClick}
         >
-          <img 
-            src={`${import.meta.env.BASE_URL}busto-new.jpeg`} 
+          <img loading="lazy" src={`${import.meta.env.BASE_URL}busto-new.jpeg`} 
             alt="Geddy Lee sliced sculpture" 
           />
 
@@ -246,9 +245,9 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
               marginTop: '2rem'
             }}
           >
-            <video
+            <video 
               src={`${import.meta.env.BASE_URL}Animacao_Geddy_Lee_Site.mp4`}
-              autoPlay
+              data-lazy="true" preload="none"
               playsInline
               onEnded={() => setShowAnimationVideo(false)}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}

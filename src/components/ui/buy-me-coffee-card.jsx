@@ -78,8 +78,7 @@ export const BuyMeCoffeeCard = ({
           boxSizing: "border-box",
         }}
       >
-        <img
-          src={image}
+        <img loading="lazy" src={image}
           alt="Buy me a coffee"
           style={{
             width: "100%",

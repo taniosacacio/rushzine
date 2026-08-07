@@ -35,6 +35,7 @@ import { BlahahaSection } from './components/ui/BlahahaSection';
 import { SectionSideLabel } from './components/ui/SectionSideLabel';
 import { AnimatedTitle } from './components/ui/AnimatedTitle';
 import { FAQAccordion } from './components/ui/FAQAccordion';
+import { useIntersectionVideo } from './hooks/useIntersectionVideo.js';
 import './index.css';
 import './hero.css';
 const faqs = {
@@ -136,7 +137,7 @@ const getTopics = (t) => [
     badge: '01',
     title: t.t1Title,
     category: 'criacao',
-    icon: <img src={`${import.meta.env.BASE_URL}imgi_3_rush-bass-icon.png`} alt="Rush Logo" className="custom-rush-icon" />,
+    icon: <img loading="lazy" src={`${import.meta.env.BASE_URL}imgi_3_rush-bass-icon.png`} alt="Rush Logo" className="custom-rush-icon" />,
     videoStart: 18,
     summary: t.t1Summary,
     detail: t.t1Detail,
@@ -146,7 +147,7 @@ const getTopics = (t) => [
     badge: '02',
     title: t.t2Title,
     category: 'equipamento',
-    icon: <img src={`${import.meta.env.BASE_URL}2 herois do baixo Rush - Yes Cream The Who.jpg`} alt="Heróis do Baixo" className="t2-custom-icon" />,
+    icon: <img loading="lazy" src={`${import.meta.env.BASE_URL}2 herois do baixo Rush - Yes Cream The Who.jpg`} alt="Heróis do Baixo" className="t2-custom-icon" />,
     videoStart: 167,
     summary: t.t2Summary,
     detail: t.t2Detail,
@@ -156,7 +157,7 @@ const getTopics = (t) => [
     badge: '03',
     title: t.t3Title,
     category: 'equipamento',
-    icon: <img src={`${import.meta.env.BASE_URL}2button-baixo-azul-esquisito-drop-bass.png`} alt="Baixo Azul Esquisito" className="t2-custom-icon" />,
+    icon: <img loading="lazy" src={`${import.meta.env.BASE_URL}2button-baixo-azul-esquisito-drop-bass.png`} alt="Baixo Azul Esquisito" className="t2-custom-icon" />,
     videoStart: 438,
     summary: t.t3Summary,
     detail: t.t3Detail,
@@ -166,7 +167,7 @@ const getTopics = (t) => [
     badge: '04',
     title: t.t4Title,
     category: 'turne',
-    icon: <img src={`${import.meta.env.BASE_URL}4-button-r50-rush-fifthysomething.png`} alt="Turnê Fifty Something" className="t2-custom-icon" />,
+    icon: <img loading="lazy" src={`${import.meta.env.BASE_URL}4-button-r50-rush-fifthysomething.png`} alt="Turnê Fifty Something" className="t2-custom-icon" />,
     videoStart: 524,
     summary: t.t4Summary,
     detail: t.t4Detail,
@@ -176,7 +177,7 @@ const getTopics = (t) => [
     badge: '05',
     title: t.t5Title,
     category: 'criacao',
-    icon: <img src={`${import.meta.env.BASE_URL}criacao-musicas.png`} alt="Criação das Músicas" className="t2-custom-icon" />,
+    icon: <img loading="lazy" src={`${import.meta.env.BASE_URL}criacao-musicas.png`} alt="Criação das Músicas" className="t2-custom-icon" />,
     videoStart: 670,
     summary: t.t5Summary,
     detail: t.t5Detail,
@@ -186,7 +187,7 @@ const getTopics = (t) => [
     badge: '06',
     title: t.t7Title,
     category: 'bastidores',
-    icon: <img src={`${import.meta.env.BASE_URL}6-button- Alex Lifeson.png`} alt="Alex Lifeson Aparece de Supetão" className="t2-custom-icon" />,
+    icon: <img loading="lazy" src={`${import.meta.env.BASE_URL}6-button- Alex Lifeson.png`} alt="Alex Lifeson Aparece de Supetão" className="t2-custom-icon" />,
     videoStart: 2707,
     summary: t.t7Summary,
     detail: t.t7Detail,
@@ -196,7 +197,7 @@ const getTopics = (t) => [
     badge: '07',
     title: t.t6Title,
     category: 'turne',
-    icon: <img src={`${import.meta.env.BASE_URL}7-button-anikanilles-.png`} alt="Anika Nilles Logo" className="t2-custom-icon" />,
+    icon: <img loading="lazy" src={`${import.meta.env.BASE_URL}7-button-anikanilles-.png`} alt="Anika Nilles Logo" className="t2-custom-icon" />,
     videoStart: 3527,
     summary: t.t6Summary,
     detail: t.t6Detail,
@@ -242,7 +243,7 @@ const HolographicImage = ({ src, alt }) => {
       onMouseLeave={handleMouseLeave}
     >
       <div className="holographic-card" ref={cardRef}>
-        <img src={src} alt={alt} />
+        <img loading="lazy" src={src} alt={alt} />
         <div className="holo-glow"></div>
         <div className="holo-glare"></div>
       </div>
@@ -258,8 +259,11 @@ const getInitialLanguage = () => {
   return 'pt';
 };
 
-const App = () => {
+function App() {
   const [language, setLanguage] = useState(getInitialLanguage);
+
+  // Apply lazy loading for videos
+  useIntersectionVideo();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [expandedTopic, setExpandedTopic] = useState(null);
@@ -336,15 +340,14 @@ const App = () => {
           
           <div className="nav-center">
             <a href="https://portalrushbrasil.com.br/" target="_blank" rel="noopener noreferrer" className="nav-logo">
-              <img src={`${import.meta.env.BASE_URL}logo_portalrush.png`} alt="Portal Rush Brasil" className="nav-logo-img" />
+              <img loading="lazy" src={`${import.meta.env.BASE_URL}logo_portalrush.png`} alt="Portal Rush Brasil" className="nav-logo-img" />
             </a>
           </div>
 
           <div className="nav-right">
             <div className="language-dropdown-container">
               <button className="nav-icon-btn lang-btn" onClick={() => setIsLangOpen(!isLangOpen)}>
-                <img 
-                  src={`https://flagcdn.com/${language === 'pt' ? 'br' : language === 'en' ? 'us' : 'es'}.svg`} 
+                <img loading="lazy" src={`https://flagcdn.com/${language === 'pt' ? 'br' : language === 'en' ? 'us' : 'es'}.svg`} 
                   width="22" 
                   alt={language} 
                   style={{ borderRadius: '2px', marginRight: '4px' }} 
@@ -360,13 +363,13 @@ const App = () => {
                     exit={{ opacity: 0, y: -10 }}
                   >
                     <button className={language === 'pt' ? 'active' : ''} onClick={() => { setLanguage('pt'); setIsLangOpen(false); }} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <img src="https://flagcdn.com/br.svg" width="18" alt="PT" style={{ borderRadius: '2px' }} /> PT
+                      <img loading="lazy" src="https://flagcdn.com/br.svg" width="18" alt="PT" style={{ borderRadius: '2px' }} /> PT
                     </button>
                     <button className={language === 'en' ? 'active' : ''} onClick={() => { setLanguage('en'); setIsLangOpen(false); }} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <img src="https://flagcdn.com/us.svg" width="18" alt="EN" style={{ borderRadius: '2px' }} /> EN
+                      <img loading="lazy" src="https://flagcdn.com/us.svg" width="18" alt="EN" style={{ borderRadius: '2px' }} /> EN
                     </button>
                     <button className={language === 'es' ? 'active' : ''} onClick={() => { setLanguage('es'); setIsLangOpen(false); }} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                      <img src="https://flagcdn.com/es.svg" width="18" alt="ES" style={{ borderRadius: '2px' }} /> ES
+                      <img loading="lazy" src="https://flagcdn.com/es.svg" width="18" alt="ES" style={{ borderRadius: '2px' }} /> ES
                     </button>
                   </motion.div>
                 )}
@@ -404,7 +407,7 @@ const App = () => {
 
       {/* ===== BACKGROUND IMAGE ===== */}
       <div className="bento-bg">
-        <img src={`${import.meta.env.BASE_URL}Fundo_hero.png`} alt="Cenário de Fundo" />
+        <img loading="lazy" src={`${import.meta.env.BASE_URL}Fundo_hero.png`} alt="Cenário de Fundo" />
         <div className="bento-bg-overlay"></div>
       </div>
 
@@ -415,6 +418,8 @@ const App = () => {
         <video 
           src={`${import.meta.env.BASE_URL}01-hero/RushZine-Cover.mp4`}
           autoPlay
+          preload="auto"
+          poster={`${import.meta.env.BASE_URL}Fundo_hero.png`}
           loop
           muted
           playsInline
@@ -426,7 +431,7 @@ const App = () => {
           
           {/* Logotipo logozine-alpha */}
           <img 
-            src={`${import.meta.env.BASE_URL}ZINELOGO/Zine-Logo-Modelo-no-elements-removebg-preview.png`} 
+            src={`${import.meta.env.BASE_URL}logozine.png`} 
             alt="RUSHZINE Logo Alpha" 
             className="hero-main-logo-anim"
             style={{ maxWidth: '460px', width: '85%', height: 'auto', filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.9))', marginBottom: '2.5rem' }}
@@ -462,7 +467,7 @@ const App = () => {
             
             {/* Placeholder Container para Vídeo Explicativo */}
             <div style={{ position: 'relative', width: '100%', maxWidth: '850px', aspectRatio: '16/9', borderRadius: '18px', overflow: 'hidden', background: '#050508', border: '1px dashed rgba(255,139,84,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <img src={`${import.meta.env.BASE_URL}sobre mim - tanios acacio - portal rush referencia.png`} alt="Tânios Acácio" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.35 }} />
+              <img loading="lazy" src={`${import.meta.env.BASE_URL}sobre mim - tanios acacio - portal rush referencia.png`} alt="Tânios Acácio" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.35 }} />
               <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.55)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
                 <div style={{ width: '75px', height: '75px', borderRadius: '50%', background: 'linear-gradient(135deg, #ff8b54, #d32f2f)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 30px rgba(255,139,84,0.7)' }}>
                   <span style={{ fontSize: '2.2rem', color: '#fff', marginLeft: '5px' }}>▶</span>
@@ -689,7 +694,7 @@ const App = () => {
             ref={anikaVideoRef}
             className="anika-bg-video"
             src={`${import.meta.env.BASE_URL}vdanika.mp4#t=113,153`}
-            autoPlay 
+            data-lazy="true" preload="none"
             loop 
             muted 
             playsInline
@@ -762,7 +767,7 @@ const App = () => {
               <video 
                 ref={anikaVideoRef}
                 src={`${import.meta.env.BASE_URL}08-anila-nilles/anika is unreal.mp4`}
-                autoPlay 
+                data-lazy="true" preload="none"
                 loop 
                 muted={isAnikaMuted}
                 playsInline 
@@ -794,7 +799,7 @@ const App = () => {
             <div style={{ background: 'linear-gradient(135deg, rgba(25,25,35,0.9), rgba(15,15,22,0.95))', border: '1px solid rgba(255,139,84,0.3)', borderRadius: '24px', padding: '35px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#ff8b54', marginBottom: '15px' }}>
-                  <img src={`${import.meta.env.BASE_URL}iconeimail_semfundo.png`} alt="Mail Icon" style={{ width: '128px', height: '128px', objectFit: 'contain', margin: '-40px -10px -40px -20px' }} />
+                  <img loading="lazy" src={`${import.meta.env.BASE_URL}iconeimail_semfundo.png`} alt="Mail Icon" style={{ width: '128px', height: '128px', objectFit: 'contain', margin: '-40px -10px -40px -20px' }} />
                   <h3 style={{ fontSize: '1.4rem', color: '#fff', margin: 0, fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{t.newsletterTitle}</h3>
                 </div>
                 <p style={{ color: '#bbb', fontSize: '1.25rem', lineHeight: '1.5', marginBottom: '20px' }}>
@@ -833,7 +838,7 @@ const App = () => {
             <div style={{ background: 'linear-gradient(135deg, rgba(25,25,35,0.9), rgba(15,15,22,0.95))', border: '1px solid rgba(37,211,102,0.4)', borderRadius: '24px', padding: '35px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#25D366', marginBottom: '15px' }}>
-                  <img src={`${import.meta.env.BASE_URL}imgi_32_whatsapp-icon.png`} alt="WhatsApp Icon" style={{ width: '44px', height: '44px', objectFit: 'contain' }} />
+                  <img loading="lazy" src={`${import.meta.env.BASE_URL}imgi_32_whatsapp-icon.png`} alt="WhatsApp Icon" style={{ width: '44px', height: '44px', objectFit: 'contain' }} />
                   <h3 style={{ fontSize: '1.4rem', color: '#fff', margin: 0, fontFamily: "'BeyondTheLightedStage', sans-serif" }}>WhatsApp Oficial</h3>
                 </div>
                 <p style={{ color: '#bbb', fontSize: '1.25rem', lineHeight: '1.5', marginBottom: '15px' }}>
@@ -850,7 +855,7 @@ const App = () => {
                 rel="noopener noreferrer"
                 style={{ width: '100%', padding: '14px', borderRadius: '12px', background: '#4BD200', color: '#fff', fontWeight: 'bold', fontSize: '1rem', textDecoration: 'none', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
               >
-                <img src={`${import.meta.env.BASE_URL}whatsapp-icon.png`} alt="WhatsApp" style={{ width: '22px', height: '22px' }} />
+                <img loading="lazy" src={`${import.meta.env.BASE_URL}whatsapp-icon.png`} alt="WhatsApp" style={{ width: '22px', height: '22px' }} />
                 {t.whatsappBtn}
               </a>
             </div>
@@ -859,7 +864,7 @@ const App = () => {
             <div style={{ background: 'linear-gradient(135deg, rgba(25,25,35,0.9), rgba(15,15,22,0.95))', border: '1px solid rgba(0,132,255,0.3)', borderRadius: '24px', padding: '35px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#0084ff', marginBottom: '15px' }}>
-                  <img src={`${import.meta.env.BASE_URL}iconezine_semfundo.png`} alt="Zine Icon" style={{ width: '128px', height: '128px', objectFit: 'contain', margin: '-40px -10px -40px -20px' }} />
+                  <img loading="lazy" src={`${import.meta.env.BASE_URL}iconezine_semfundo.png`} alt="Zine Icon" style={{ width: '128px', height: '128px', objectFit: 'contain', margin: '-40px -10px -40px -20px' }} />
                   <h3 style={{ fontSize: '1.4rem', color: '#fff', margin: 0, fontFamily: "'BeyondTheLightedStage', sans-serif" }}>{t.socialTitle}</h3>
                 </div>
                 <p style={{ color: '#bbb', fontSize: '1.25rem', lineHeight: '1.5', marginBottom: '20px' }}>
@@ -933,7 +938,7 @@ const App = () => {
       {/* ================================================================= */}
       <div id="capa-2-old" style={{ display: 'none' }}>
         <div className="hero-zine-cover">
-          <img src={`${import.meta.env.BASE_URL}02 - Capa/RUSH ZINE - COVER.png`} alt="Capa Antiga" />
+          <img loading="lazy" src={`${import.meta.env.BASE_URL}02 - Capa/RUSH ZINE - COVER.png`} alt="Capa Antiga" />
         </div>
       </div>
 
@@ -951,12 +956,12 @@ const App = () => {
 
       <div id="livro-14-old" style={{ display: 'none' }}>
         <a href="https://www.belasletras.com.br/loja/busca.php?loja=1194178&palavra_busca=My+Effin+Life" target="_blank" rel="noopener noreferrer">
-          <img src={`${import.meta.env.BASE_URL}livrosemfundo.png`} alt="Livro Antigo" />
+          <img loading="lazy" src={`${import.meta.env.BASE_URL}livrosemfundo.png`} alt="Livro Antigo" />
         </a>
       </div>
 
       <div id="hero-old-video" style={{ display: 'none' }}>
-        <video src={`${import.meta.env.BASE_URL}Banner_Animado_Leve.mp4`} muted loop />
+        <video src={`${import.meta.env.BASE_URL}Banner_Animado_Leve.mp4`} data-lazy="true" preload="none" muted loop />
       </div>
 
       {/* ===== FOOTER SECTION ===== */}

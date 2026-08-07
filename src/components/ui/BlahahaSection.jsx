@@ -32,8 +32,7 @@ const Blahaha3DPoster = () => {
         }}
       >
         {/* Base Layer: Poster without text/elements */}
-        <img 
-          src={`${import.meta.env.BASE_URL}Blahaha/debbie-poster-no-elements.jpeg`} 
+        <img loading="lazy" src={`${import.meta.env.BASE_URL}Blahaha/debbie-poster-no-elements.jpeg`} 
           alt="Geddy Does Dallas Base Poster" 
           className="poster-layer base-layer"
         />

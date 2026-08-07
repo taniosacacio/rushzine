@@ -59,8 +59,7 @@ export const Floating3DCard = () => {
             className="mt-6 w-full px-2"
             style={{ transform: "translateZ(100px)" }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop"
+            <img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop"
               alt="thumbnail"
               className="h-48 w-full rounded-sm object-cover transition-shadow duration-300 sm:h-60 group-hover:shadow-xl"
             />

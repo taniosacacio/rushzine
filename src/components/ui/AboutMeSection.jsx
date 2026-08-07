@@ -58,11 +58,11 @@ export const AboutMeSection = ({ t }) => {
     <section id="sobre-mim-12" className="about-me-simple-container" ref={containerRef} style={{ paddingTop: '4rem' }}>
       <div className="about-me-bg-wrapper">
         {isInView && (
-          <video 
+          <video  
             ref={videoRef}
             className="about-me-bg-video" 
             src={`${import.meta.env.BASE_URL}Timeline_Snakes_&_Arrows_Leve.mp4`} 
-            autoPlay 
+            data-lazy="true" preload="none" 
             loop 
             muted 
             playsInline
@@ -79,8 +79,7 @@ export const AboutMeSection = ({ t }) => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, margin: "-100px" }}
         >
-          <img 
-            src={`${import.meta.env.BASE_URL}Tanios Rush Acacio - Portal Rush Brasil.png`} 
+          <img loading="lazy" src={`${import.meta.env.BASE_URL}Tanios Rush Acacio - Portal Rush Brasil.png`} 
             alt="Tânios Rush Acácio - Portal Rush" 
             className="about-me-photo"
           />
@@ -88,9 +87,9 @@ export const AboutMeSection = ({ t }) => {
           <a href="https://open.spotify.com/episode/03wWuhH49Z4YNSOryKAX6f?si=298e83d3de544e65" target="_blank" rel="noopener noreferrer" className="premium-spotify-card">
             <div className="spotify-card-blur-bg"></div>
             <div className="spotify-card-content">
-              <img src={`${import.meta.env.BASE_URL}SFN - The Rush Cast - Portal Rush Brasil .png`} alt="Podcast Cover" className="spotify-cover-art" />
+              <img loading="lazy" src={`${import.meta.env.BASE_URL}SFN - The Rush Cast - Portal Rush Brasil .png`} alt="Podcast Cover" className="spotify-cover-art" />
               <div className="spotify-text-group">
-                <span className="spotify-badge"><img src={`${import.meta.env.BASE_URL}Spotify-logo.png`} alt="Spotify Logo" className="spotify-icon-micro" /> A RUSH Fancast</span>
+                <span className="spotify-badge"><img loading="lazy" src={`${import.meta.env.BASE_URL}Spotify-logo.png`} alt="Spotify Logo" className="spotify-icon-micro" /> A RUSH Fancast</span>
                 <h4 className="spotify-title-main">{t.aboutMePodcastMain} <span className="no-break-brand">Portal Rush Brasil</span></h4>
                 <p className="spotify-subtitle">{t.aboutMePodcastSub}</p>
               </div>

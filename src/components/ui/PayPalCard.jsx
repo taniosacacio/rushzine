@@ -77,8 +77,7 @@ export const PayPalCard = ({
           marginBottom: 12,
         }}
       >
-        <img
-          src={image}
+        <img loading="lazy" src={image}
           alt="Support via PayPal"
           style={{
             width: "100%",
@@ -226,8 +225,7 @@ export const PayPalCard = ({
               PayPal QR Code
             </h3>
             <div style={{ background: "white", padding: "12px", borderRadius: "1rem", display: "inline-block", marginBottom: "16px" }}>
-              <img 
-                src={qrImage} 
+              <img loading="lazy" src={qrImage} 
                 alt="PayPal QR Code" 
                 style={{ width: "100%", height: "auto", maxHeight: "40vh", objectFit: "contain", display: "block", borderRadius: "0.5rem" }} 
               />
