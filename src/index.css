@@ -3131,7 +3131,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* Padronizar quadros de imagem dos cards de doação para todos terem o mesmo tamanho no desktop */
-.donation-card-img:not(.coffee-img) {
+.donation-card-img {
   height: 200px !important;
   display: flex !important;
   align-items: center !important;
@@ -3141,7 +3141,7 @@ img { max-width: 100%; display: block; }
   overflow: hidden !important;
 }
 
-.donation-card-img:not(.coffee-img) img {
+.donation-card-img img {
   object-fit: contain !important;
   width: 100% !important;
   height: 100% !important;
@@ -3149,7 +3149,7 @@ img { max-width: 100%; display: block; }
   transition: transform 0.4s ease !important;
 }
 
-.donation-card:hover .donation-card-img:not(.coffee-img) img {
+.donation-card:hover .donation-card-img img {
   transform: scale(1.35) !important;
 }
 
@@ -3169,12 +3169,14 @@ img { max-width: 100%; display: block; }
   }
   .donation-card {
     height: auto !important;
+    max-height: 280px !important;
     padding: 6px !important;
     width: 32% !important;
     max-width: none !important;
     margin: 0;
+    overflow: hidden !important;
   }
-  .donation-card-img:not(.coffee-img) {
+  .donation-card-img {
     height: auto !important;
     aspect-ratio: 1 / 1 !important;
     margin-bottom: 6px !important;
@@ -3186,7 +3188,7 @@ img { max-width: 100%; display: block; }
     padding: 4px !important;
     overflow: hidden !important;
   }
-  .donation-card-img:not(.coffee-img) img {
+  .donation-card-img img {
     object-fit: contain !important;
     width: 100% !important;
     height: 100% !important;
@@ -3194,9 +3196,6 @@ img { max-width: 100%; display: block; }
     border-radius: 0 !important;
     padding: 0 !important;
     transform: scale(1.2) !important;
-  }
-  .donation-card-img.coffee-img img {
-    transform: none !important;
   }
   .donation-card > div:last-child > div:first-child {
     display: flex !important;

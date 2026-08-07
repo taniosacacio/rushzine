@@ -63,14 +63,19 @@ export const BuyMeCoffeeCard = ({
       }}
     >
       <div
-        className="donation-card-img coffee-img"
+        className="donation-card-img"
         style={{
           width: "100%",
-          height: 240,
+          height: 200,
           borderRadius: "1rem",
           overflow: "hidden",
-          background: "#121212",
+          background: "#fff",
           marginBottom: 16,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "16px",
+          boxSizing: "border-box",
         }}
       >
         <img
@@ -79,10 +84,11 @@ export const BuyMeCoffeeCard = ({
           style={{
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            objectFit: "contain",
             display: "block",
             transition: "transform 0.5s ease",
             transform: hovered ? "scale(1.05)" : "scale(1)",
+            borderRadius: "0.5rem",
           }}
         />
       </div>
