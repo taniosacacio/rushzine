@@ -40,6 +40,14 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
   }, [userCode, isUnlocked]);
 
   useEffect(() => {
+    if (isUnlocked && showAnimationVideo) {
+      setTimeout(() => {
+        document.getElementById('animation-video-container')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 800);
+    }
+  }, [isUnlocked, showAnimationVideo]);
+
+  useEffect(() => {
     if (isUnlocked && !showAnimationVideo) {
       setTimeout(() => {
         document.getElementById('vault-reward')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -60,6 +68,11 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
         setIsUnlocked(true);
         setShowAnimationVideo(true);
         setShowConfetti(true);
+        
+        if (document.activeElement && document.activeElement.blur) {
+          document.activeElement.blur();
+        }
+
         setTimeout(() => setShowConfetti(false), 5000);
       }
     } else {
@@ -230,6 +243,7 @@ export const GeddyEasterEgg = ({ onSuccess, t }) => {
 
         {isUnlocked && showAnimationVideo && (
           <motion.div
+            id="animation-video-container"
             key="animation-video"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
