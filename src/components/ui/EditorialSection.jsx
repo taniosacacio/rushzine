@@ -160,7 +160,7 @@ const foldsList = [
       en: 'Receive our editions and news directly in your e-mail. Be part of the community.',
       es: 'Recibe nuestras ediciones y novedades directamente en tu correo. Sé parte de la comunidad.'
     },
-    img: 'ZINELOGO/logozine.png'
+    img: 'ZINELOGO/Zine-Logo-Modelo-no-elements-removebg-preview.png'
   },
   {
     id: 'livro-15',
@@ -185,7 +185,7 @@ const foldsList = [
       en: 'Credits and references for the images used in this edition of our Zine.',
       es: 'Créditos e referências das imagens utilizadas nesta edição da nossa Zine.'
     },
-    img: 'ZINELOGO/logozine.png'
+    img: 'ZINELOGO/Zine-Logo-Modelo-no-elements-removebg-preview.png'
   }
 ];
 import Confetti from 'react-confetti';
@@ -717,7 +717,7 @@ export const EditorialSection = ({ t, language, mode = 'index' }) => {
               <motion.img 
                 initial={{ opacity: 0, scale: 0.85, rotate: -20 }}
                 animate={{ opacity: 0.15, scale: 1, rotate: -8 }}
-                src={`${import.meta.env.BASE_URL}ZINELOGO/logozine.png`} 
+                src={`${import.meta.env.BASE_URL}ZINELOGO/Zine-Logo-Modelo-no-elements-removebg-preview.png`} 
                 alt="Logo Zine Marca d'água Fundo" 
                 className="editorial-index-logo-bg"
               />
