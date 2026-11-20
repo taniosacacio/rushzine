@@ -4,7 +4,7 @@ import { LanguageSwitch } from './ConsentGate';
 // Senha de revisão (só na versão de revisão: VITE_REVIEW_GATE=on).
 // Guardamos apenas o SHA-256 da senha. Isto NÃO é segurança forte: serve
 // para manter a prévia longe de visitantes casuais e de buscadores.
-const HASH = 'b56460f47cfcd7cede887b82f81626d7080f87021cc194e2a35648b0859b5646';
+const HASH = '31f54aaa79b8594ad2ff74c6cb267b0eac8c7e5a6a29a17b3f43d20861e9e5ab';
 const KEY = 'rushzine-review-ok';
 export const reviewGateOn = import.meta.env.VITE_REVIEW_GATE === 'on';
 
